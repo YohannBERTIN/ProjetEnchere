@@ -12,15 +12,15 @@
 	</header>
 	<main>
 		<form>
-			<label for="login"></label>
-			<input type="text" name="login">
-			<label for="mdp"></label>
-			<input type="text" name="mdp">
-			<input type="submit" value="Connexion">
+			<label for="login">Identifiant : </label><br>
+			<input type="text" name="login"><br>
+			<label for="mdp">Mot de passe : </label><br>
+			<input type="text" name="mdp"><br>
+			<input type="submit" value="Connexion"><br>
 			<input type="checkbox" name="remember">
-  			<label for="remember">Se souvenir de moi</label>
-			<a href>Mot de passe oublié</a>
-			<a href=""><button>Créer un compte</button></a>
+  			<label for="remember">Se souvenir de moi</label><br>
+			<a href>Mot de passe oublié</a><br>
+			<a href=""><button>Créer un compte</button></a><br>
 		</form>
 	</main>
 </body>
