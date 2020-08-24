@@ -1,6 +1,7 @@
 package fr.eni.projet.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -30,6 +31,9 @@ public class ServletLogin extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
+		String nomUtilisateur = request.getParameter("login");
+		String mdp = request.getParameter("mdp");
+		
 		
 		
 	}
