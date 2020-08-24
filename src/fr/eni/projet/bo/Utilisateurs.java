@@ -1,5 +1,10 @@
 package fr.eni.projet.bo;
 
+/**
+ * 
+ * @author Kunkero
+ *
+ */
 public class Utilisateurs {
 	
 	private int no_utilisateur;
@@ -15,6 +20,18 @@ public class Utilisateurs {
 	private int credit;
 	private int administrateur;
 	
+	/**
+	 * 
+	 * @param pseudo
+	 * @param nom
+	 * @param prenom
+	 * @param email
+	 * @param rue
+	 * @param codePostal
+	 * @param ville
+	 * @param motDePasse
+	 * @param credit
+	 */
 	public Utilisateurs(String pseudo, String nom, String prenom, String email, String rue, String codePostal,
 			String ville, String motDePasse, int credit) {
 		super();
@@ -28,7 +45,11 @@ public class Utilisateurs {
 		this.motDePasse = motDePasse;
 		this.credit = credit;
 	}
-
+	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getNo_utilisateur() {
 		return no_utilisateur;
 	}
