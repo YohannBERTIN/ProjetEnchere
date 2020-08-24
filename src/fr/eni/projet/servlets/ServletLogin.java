@@ -33,9 +33,7 @@ public class ServletLogin extends HttpServlet {
 	
 		String nomUtilisateur = request.getParameter("login");
 		String mdp = request.getParameter("mdp");
-		
-		
-		
+				
 	}
 
 }
