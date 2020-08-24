@@ -12,7 +12,10 @@ public class ArticlesVendus {
 	private Utilisateurs numUtilisateur;
 	private Categories numCategorie;
 	
+<<<<<<< HEAD
 	
+=======
+>>>>>>> bac055da33cc4ee60bf80dd6de4f8fc2493a8b23
 	/**
 	 * 
 	 * Constructeur de Classe ArticleVendus
