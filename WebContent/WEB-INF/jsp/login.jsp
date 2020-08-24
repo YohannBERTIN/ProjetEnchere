@@ -11,7 +11,7 @@
 		<h1>ENI-Enchères</h1>
 	</header>
 	<main>
-		<form>
+		<form method="post" action="<%=request.getContextPath()%>/Login">
 			<label for="login">Identifiant : </label><br>
 			<input type="text" name="login"><br>
 			<label for="mdp">Mot de passe : </label><br>
@@ -19,7 +19,7 @@
 			<input type="submit" value="Connexion"><br>
 			<input type="checkbox" name="remember">
   			<label for="remember">Se souvenir de moi</label><br>
-			<a href>Mot de passe oublié</a><br>
+			<a href="">Mot de passe oublié</a><br>
 			<a href=""><button>Créer un compte</button></a><br>
 		</form>
 	</main>
