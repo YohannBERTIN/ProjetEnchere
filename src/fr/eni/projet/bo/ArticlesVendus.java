@@ -11,6 +11,8 @@ public class ArticlesVendus {
 	private int prixVente;
 	private Utilisateurs numUtilisateur;
 	private Categories numCategorie;
+	
+	
 	/**
 	 * 
 	 * Constructeur de Classe ArticleVendus
