@@ -25,7 +25,7 @@ public class ServletRegister extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		RequestDispatcher rd = request.getRequestDispatcher("WEB_INF/jsp/register.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/register.jsp");
 		rd.forward(request, response);
 		
 		
@@ -67,7 +67,7 @@ public class ServletRegister extends HttpServlet {
 					message = "Attention - Tous les champs obligatoires doivent être remplis.";
 					response.sendRedirect("http://localhost:8080/ProjetEnchere/Register");
 				} else {
-					message = "Client crééavec succès !";
+					message = "Client créé avec succès !";
 				}
 					
 				/*
