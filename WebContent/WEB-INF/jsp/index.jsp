@@ -10,8 +10,8 @@
 	<body>
 		<header>
 		<h1>ENI-Enchère</h1>
-		<a href="<%=request.getContextPath()%>/register"><button>S'inscrire</button></a>
-		<a href="<%=request.getContextPath()%>/login"><button>Se connecter</button></a>
+		<a href="<%=request.getContextPath()%>/Register"><button>S'inscrire</button></a>
+		<a href="<%=request.getContextPath()%>/Login"><button>Se connecter</button></a>
 		</header>
 		<main>
 			<h2>Liste des enchères</h2>
