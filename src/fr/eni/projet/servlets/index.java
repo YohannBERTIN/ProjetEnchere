@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet redirigeant vers l'index du site.
  */
-@WebServlet("/index")
+@WebServlet("/Index")
 public class index extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -30,5 +30,4 @@ public class index extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 }
