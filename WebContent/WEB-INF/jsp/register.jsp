@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<div>
-            <form method="get" action="<%=request.getContextPath()%>/register">
+            <form method="get" action="<%=request.getContextPath()%>/Register">
                 <fieldset>
                     <legend>Mon profil</legend>
                     
