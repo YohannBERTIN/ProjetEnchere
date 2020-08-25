@@ -49,10 +49,13 @@ public class ServletRegister extends HttpServlet {
 			message = "Attention - Tous les champs obligatoires doivent être remplis.";
 			response.sendRedirect("http://localhost:8080/ProjetEnchere/Register");
 			
+		} else if (mdp.trim() != confirmMdp.trim()){
+			message = "Attention - Tous les champs obligatoires doivent être remplis.";
+			response.sendRedirect("http://localhost:8080/ProjetEnchere/Register");
 		} else {
-			message = "Client créé avec succès !";
+			message = "Client crééavec succès !";
 		}
-		
+			
 		/*
 		 * Création du bean Client et initialisation avec les données récupérées
 		 */
