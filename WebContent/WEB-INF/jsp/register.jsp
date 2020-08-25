@@ -13,6 +13,7 @@
             <form method="post" action="<c:url value="/Register"/>">
                 <fieldset>
                     <legend>Mon profil</legend>
+                    <p class="info">${ message }</p>
                     <div class="form">
 	                    <div class="form-box">
 		                    <label for="userPseudo">Pseudo : <span class="required">*</span></label>
