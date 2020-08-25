@@ -4,16 +4,16 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link type="text/css" rel="stylesheet" href="./css/style.css" />
+		<link type="text/css" rel="stylesheet" href="<c:url value="./css/style.css"/>" />
 		<title>ENI-Enchères</title>
 	</head>
 	<body>
 		<header>
-		<h1>ENI-Enchère</h1>
-		<a href="${pageContext.request.contextPath}/Auction"><button>Enchères</button></a>
-		<a href="${pageContext.request.contextPath}/Sell"><button>Vendre un article</button></a>
-		<a href="${pageContext.request.contextPath}/Profil"><button>Mon profil</button></a>
-		<a href="${pageContext.request.contextPath}/Logout"><button>Déconnexion</button></a>
+			<h1>ENI-Enchère</h1>
+			<a href="<c:url value="/Auction"/>"><button>Enchères</button></a>
+			<a href="<c:url value="/Sell"/>"><button>Vendre un article</button></a>
+			<a href="<c:url value="/Profil"/>"><button>Mon profil</button></a>
+			<a href="<c:url value="/Logout"/>"><button>Déconnexion</button></a>
 		</header>
 		<main>
 			<h2>Liste des enchères</h2>

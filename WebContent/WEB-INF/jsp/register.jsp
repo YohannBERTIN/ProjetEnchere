@@ -4,12 +4,12 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link type="text/css" rel="stylesheet" href="./css/style.css" />
+		<link type="text/css" rel="stylesheet" href="<c:url value="./css/style.css"/>" />
 		<title>Mon profil</title>
 	</head>
 	<body>
 		<div>
-            <form method="post" action="${pageContext.request.contextPath}/Register">
+            <form method="post" action="<c:url value="/Register"/>">
                 <fieldset>
                     <legend>Mon profil</legend>
                     <div class="form">
@@ -49,7 +49,7 @@
                 </fieldset>
                 <input type="submit" value="Créer"  />
             </form>
-            <a href="${pageContext.request.contextPath}/Index"><button>Annuler</button></a><br />
+            <a href="<c:url value="/Index"/>"><button>Annuler</button></a><br />
         </div>
 	</body>
 </html>
