@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.eni.projet.bo.Utilisateurs;
-
 /**
  * Servlet gérant la création d'un client/utilisateur
  * 
@@ -49,30 +47,27 @@ public class Register extends HttpServlet {
 				String mdp = request.getParameter("userPassword");
 				String confirmMdp = request.getParameter("userConfirmation");
 				
-				String message;
-				
 				try {
+					// !!! Probleme vérification saisie mdp !!!
 					validationEmail(email);
 					validationMotDePasse(mdp, confirmMdp);
 					validationSaisie(pseudo, nom, prenom, email, rue, codePostal, ville, mdp);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+					
 				}
 				
-				
-				
-				
-				
-				this.getServletContext().getRequestDispatcher("WEB-INF/jsp/index_login.jsp").forward(request, response);
+								
+				this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/index_login.jsp").forward(request, response);
 	}
 	
 	private void validationEmail(String email) throws Exception {
 		if(email != null && email.trim().length() != 0) {
 			
-			if(!email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")); {
-				throw new Exception("Merci de saisir une adresse e-mail valide");
-			} 
+			//if(!email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")); { 
+				//throw new Exception("Merci de saisir une adresse e-mail valide");
+			//} 
 		} else {
 			throw new Exception("Merci de saisir une adresse mail.");
 		}
@@ -83,7 +78,7 @@ public class Register extends HttpServlet {
 			if(!mdp.equals(confirmation)) {
 				throw new Exception("Les mots de passe entrés sont différents, merci de les saisir à nouveau.");
 			} else if(mdp.trim().length() < 8) {
-				throw new Exception("Les mots de passes doivetn contenir au moins 8 caractères.");
+				throw new Exception("Les mots de passes doivent contenir au moins 8 caractères.");
 			} else {
 				throw new Exception("Merci de saisir et de confirmer votre mot de passe");
 			}
@@ -93,14 +88,14 @@ public class Register extends HttpServlet {
 	
 	private void validationSaisie(String pseudo, String nom, String prenom, String email, String rue, String codePostal, String ville, String mdp) throws Exception {
 		
-		String success;
+		String message;
 		
 		if(nom != null && nom.trim().length() < 3) {
-			throw new Exception("Le nom d'utilisateur ou Pseudo doit contenir au moins 3 caractères");
+			message = "Le nom d'utilisateur ou Pseudo doit contenir au moins 3 caractères";
 		} else if (nom.trim().isEmpty() || prenom.trim().isEmpty() || rue.trim().isEmpty() || ville.trim().isEmpty()) {
-			throw new Exception("Attention - Tous les champs obligatoires doivent être remplis pour pouvoir créer votre profil utilisateur !");
+				message = "Attention - Tous les champs obligatoires doivent être remplis pour pouvoir créer votre profil utilisateur !";
 		} else {
-			success = "Votre profil utilisateur a été créé avec succès !";
+			message = "Votre profil utilisateur a été créé avec succès !";
 		}
 	}
 
