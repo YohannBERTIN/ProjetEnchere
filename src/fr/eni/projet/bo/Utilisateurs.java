@@ -20,31 +20,6 @@ public class Utilisateurs {
 	private int credit;
 	private int administrateur;
 	
-	/**
-	 * 
-	 * @param pseudo
-	 * @param nom
-	 * @param prenom
-	 * @param email
-	 * @param rue
-	 * @param codePostal
-	 * @param ville
-	 * @param motDePasse
-	 * @param credit
-	 */
-	public Utilisateurs(String pseudo, String nom, String prenom, String email, String rue, String codePostal,
-			String ville, String motDePasse, int credit) {
-		super();
-		this.pseudo = pseudo;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
-		this.rue = rue;
-		this.codePostal = codePostal;
-		this.ville = ville;
-		this.motDePasse = motDePasse;
-		this.credit = credit;
-	}
 	
 	/**
 	 * 
@@ -146,11 +121,5 @@ public class Utilisateurs {
 		this.administrateur = administrateur;
 	}
 	
-	@Override
-	public String toString() {
-		return "Utilisateurs [noUtilisateur=" + noUtilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
-				+ prenom + ", email=" + email + ", telephone=" + telephone + ", rue=" + rue + ", codePostal="
-				+ codePostal + ", ville=" + ville + ", motDePasse=" + motDePasse + ", credit=" + credit
-				+ ", administrateur=" + administrateur + "]";
-	}
+	
 }

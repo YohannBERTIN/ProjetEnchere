@@ -1,7 +1,6 @@
 package fr.eni.projet.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,12 +8,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ServletLogin
  */
 @WebServlet("/Login")
-public class ServletLogin extends HttpServlet {
+public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -40,11 +40,21 @@ public class ServletLogin extends HttpServlet {
 		String login = request.getParameter("login");
 		String mdp = request.getParameter("mdp");
 		
+		//Comparer login et mdp avec la base de données
+		
+		
+		
+		// Créer la session
+		HttpSession session = request.getSession();
+		
+		
+		
 		
 		//Redirection vers la jsp affichage enchère mode connecté
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/encheresConnected.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/index_login.jsp");
 		rd.forward(request, response);
-				
+		
+		
 	}
 
 }
