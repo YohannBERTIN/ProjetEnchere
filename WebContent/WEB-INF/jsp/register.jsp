@@ -49,7 +49,7 @@
                     <br />  
                 </fieldset>
                 <input type="submit" value="Créer"  />
-                <a href="http://localhost:8080/ProjetEnchere/index"><button>Annuler</button></a><br />
+                <a href="<%=request.getContextPath()%>/Index"><button>Annuler</button></a><br />
             </form>
         </div>
 	</body>
