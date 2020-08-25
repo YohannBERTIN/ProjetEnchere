@@ -1,10 +1,10 @@
 /* Général ------------------------------------------------------------------------------------- */
 
-body, p, legend, label, input {
+body, p, legend, label, input, button {
     font: normal 8pt verdana, helvetica, sans-serif;
 }
 
-input {
+button {
     margin: 3px 3px 0px 0px;
     border: 1px #999 solid;
 }
@@ -28,7 +28,7 @@ legend {
 
 form label {
     float: left;
-    width: 200px;
+    width: 100px;
     margin: 3px 0px 0px 0px;
 }
 
