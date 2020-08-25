@@ -9,43 +9,43 @@
 	</head>
 	<body>
 		<div>
-            <form method="get" action="<%=request.getContextPath()%>/register">
+            <form method="post" action="<%=request.getContextPath()%>/register">
                 <fieldset>
                     <legend>Mon profil</legend>
                     
-                    <label for="nomClient">Pseudo : <span class="required">*</span></label>
-                    <input type="text" id="nomClient" name="userPseudo" value="" size="20" maxlength="20" />
+                    <label for="userPseudo">Pseudo : <span class="required">*</span></label>
+                    <input type="text" id="userPseudo" name="userPseudo" value="" size="20" maxlength="20" />
     
-                    <label for="nomClient">Nom : <span class="required">*</span></label>
-                    <input type="text" id="nomClient" name="userLastName" value="" size="20" maxlength="20" />
+                    <label for="userLastName">Nom : <span class="required">*</span></label>
+                    <input type="text" id="userLastName" name="userLastName" value="" size="20" maxlength="20" />
                     <br />
                     
-                    <label for="prenomClient">Prénom : <span class="required">*</span></label>
-                    <input type="text" id="prenomClient" name="userFirstName" value="" size="20" maxlength="20" />
+                    <label for="userFirstName">Prénom : <span class="required">*</span></label>
+                    <input type="text" id="userFirstName" name="userFirstName" value="" size="20" maxlength="20" />
                     
-                    <label for="emailClient">Email : <span class="required">*</span></label>
-                    <input type="email" id="emailClient" name="userEmail" value="" size="20" maxlength="60" />
+                    <label for="userEmail">Email : <span class="required">*</span></label>
+                    <input type="email" id="userEmail" name="userEmail" value="" size="20" maxlength="60" />
                     <br />
     
-                    <label for="telephoneClient">Téléphone : </label>
-                    <input type="text" id="telephoneClient" name="userPhone" value="" size="20" maxlength="20" />
+                    <label for="userPhone">Téléphone : </label>
+                    <input type="text" id="userPhone" name="userPhone" value="" size="20" maxlength="20" />
                     
-                    <label for="adresseClient">Rue : <span class="required">*</span></label>
-                    <input type="text" id="adresseClient" name="userAdress" value="" size="20" maxlength="20" />
+                    <label for="userStreet">Rue : <span class="required">*</span></label>
+                    <input type="text" id="userStreet" name="userStreet" value="" size="20" maxlength="20" />
                     <br />
                     
-                    <label for="adresseClient">Code postal : <span class="required">*</span></label>
-                    <input type="text" id="adresseClient" name="userAdress" value="" size="20" maxlength="20" />
+                    <label for="userZip">Code postal : <span class="required">*</span></label>
+                    <input type="text" id="userZip" name="userZip" value="" size="20" maxlength="20" />
 
-                    <label for="adresseClient">Ville : <span class="required">*</span></label>
-                    <input type="text" id="adresseClient" name="userAdress" value="" size="20" maxlength="20" />
+                    <label for="userCity">Ville : <span class="required">*</span></label>
+                    <input type="text" id="userCity" name="userCity" value="" size="20" maxlength="20" />
                     <br />
                     
-                    <label for="adresseClient">Mot de passe : <span class="required">*</span></label>
-                    <input type="text" id="adresseClient" name="userAdress" value="" size="20" maxlength="20" />
+                    <label for="userPassword">Mot de passe : <span class="required">*</span></label>
+                    <input type="text" id="userPassword" name="userPassword" value="" size="20" maxlength="20" />
 
-                    <label for="adresseClient">Confirmation : <span class="required">*</span></label>
-                    <input type="text" id="adresseClient" name="userAdress" value="" size="20" maxlength="20" />
+                    <label for="userConfirmation">Confirmation : <span class="required">*</span></label>
+                    <input type="text" id="userConfirmation" name="userConfirmation" value="" size="20" maxlength="20" />
                     <br />  
                 </fieldset>
                 <input type="submit" value="Créer"  />
