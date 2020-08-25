@@ -20,7 +20,7 @@
 			<input type="checkbox" name="remember">
   			<label for="remember">Se souvenir de moi</label><br>
 			<a href="">Mot de passe oublié</a><br>
-			<a href=""><button>Créer un compte</button></a><br>
+			<a href="<%=request.getContextPath()%>/Register"><button>Créer un compte</button></a><br>
 		</form>
 	</main>
 </body>
