@@ -50,6 +50,7 @@ public class ServletRegister extends HttpServlet {
 			response.sendRedirect("http://localhost:8080/ProjetEnchere/Register");
 			
 		} else if (mdp.trim() != confirmMdp.trim()){
+			// Ici on test si le champ confirmer mot passe est différent du mot de passe souhaité.
 			message = "Attention - Tous les champs obligatoires doivent être remplis.";
 			response.sendRedirect("http://localhost:8080/ProjetEnchere/Register");
 		} else {
@@ -71,7 +72,7 @@ public class ServletRegister extends HttpServlet {
 		 * Transmission à la pageJSP en charge de l'affichage des données.
 		 */
 		this.getServletContext().getRequestDispatcher("/userProfile").forward(request, response);
-		
+		//
 		
 	}
 
