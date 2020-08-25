@@ -11,7 +11,7 @@
 		<h1>ENI-Enchères</h1>
 	</header>
 	<main>
-		<form method="post" action="<%=request.getContextPath()%>/Login">
+		<form method="post" action="${pageContext.request.contextPath}/Login">
 			<label for="login">Identifiant : </label><br>
 			<input type="text" name="login"><br>
 			<label for="mdp">Mot de passe : </label><br>
@@ -21,7 +21,7 @@
   			<label for="remember">Se souvenir de moi</label><br>
 			<a href="">Mot de passe oublié</a><br>
 		</form>
-		<a href="<%=request.getContextPath()%>/Register"><button>Créer un compte</button></a><br>
+		<a href="${pageContext.request.contextPath}/Register"><button>Créer un compte</button></a><br>
 	</main>
 </body>
 </html>

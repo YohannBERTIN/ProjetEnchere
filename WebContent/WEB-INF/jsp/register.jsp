@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<div>
-            <form method="post" action="<%=request.getContextPath()%>/Register">
+            <form method="post" action="${pageContext.request.contextPath}/Register">
                 <fieldset>
                     <legend>Mon profil</legend>
                     <div class="form">
@@ -49,7 +49,7 @@
                 </fieldset>
                 <input type="submit" value="Créer"  />
             </form>
-            <a href="<%=request.getContextPath()%>/Index"><button>Annuler</button></a><br />
+            <a href="${pageContext.request.contextPath}/Index"><button>Annuler</button></a><br />
         </div>
 	</body>
 </html>

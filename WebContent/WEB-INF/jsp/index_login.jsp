@@ -10,10 +10,10 @@
 	<body>
 		<header>
 		<h1>ENI-Enchère</h1>
-		<a href="<%=request.getContextPath()%>/Auction"><button>Enchères</button></a>
-		<a href="<%=request.getContextPath()%>/Sell"><button>Vendre un article</button></a>
-		<a href="<%=request.getContextPath()%>/Profil"><button>Mon profil</button></a>
-		<a href="<%=request.getContextPath()%>/Logout"><button>Déconnexion</button></a>
+		<a href="${pageContext.request.contextPath}/Auction"><button>Enchères</button></a>
+		<a href="${pageContext.request.contextPath}/Sell"><button>Vendre un article</button></a>
+		<a href="${pageContext.request.contextPath}/Profil"><button>Mon profil</button></a>
+		<a href="${pageContext.request.contextPath}/Logout"><button>Déconnexion</button></a>
 		</header>
 		<main>
 			<h2>Liste des enchères</h2>
