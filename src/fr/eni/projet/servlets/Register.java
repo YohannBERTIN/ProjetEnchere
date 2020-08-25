@@ -38,16 +38,16 @@ public class Register extends HttpServlet {
 		
 		// Récupération des données saisies, envoyés en tant que paramètres
 				// de la requête GET générée à la validation du formaulaire
-				String pseudo = request.getParameter("#");
-				String nom = request.getParameter("#");
-				String prenom = request.getParameter("#");
-				String email = request.getParameter("#");
-				String telephone = request.getParameter("#");
-				String rue = request.getParameter("#");
-				String codePostal = request.getParameter("#");
-				String ville = request.getParameter("#");
-				String mdp = request.getParameter("#");
-				String confirmMdp = request.getParameter("#");
+				String pseudo = request.getParameter("userPseudo");
+				String nom = request.getParameter("userLastName");
+				String prenom = request.getParameter("userFirstName");
+				String email = request.getParameter("userEmail");
+				String telephone = request.getParameter("userPhone");
+				String rue = request.getParameter("userStreet");
+				String codePostal = request.getParameter("userZip");
+				String ville = request.getParameter("userCity");
+				String mdp = request.getParameter("userPassword");
+				String confirmMdp = request.getParameter("userConfirmation");
 				
 				String message;
 				
