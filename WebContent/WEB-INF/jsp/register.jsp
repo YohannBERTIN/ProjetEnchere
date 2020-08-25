@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link type="text/css" rel="stylesheet" href="./css/style.css" />
+		<link type="text/css" rel="stylesheet" href="/css/style.css" />
 		<title>Mon profil</title>
 	</head>
 	<body>
@@ -49,8 +49,8 @@
                     <br />  
                 </fieldset>
                 <input type="submit" value="Créer"  />
-                <a href="<%=request.getContextPath()%>/Index"><button>Annuler</button></a><br />
             </form>
+            <a href="<%=request.getContextPath()%>/Index"><button>Annuler</button></a><br />
         </div>
 	</body>
 </html>
