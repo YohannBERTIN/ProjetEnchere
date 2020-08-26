@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet redirigeant vers l'index du site.
  */
 @WebServlet("/Index")
-public class index extends HttpServlet {
+public class Index extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
