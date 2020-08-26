@@ -14,7 +14,11 @@
 			<a href="<c:url value="/Auction"/>"><button>Enchères</button></a>
 			<a href="<c:url value="/Sell"/>"><button>Vendre un article</button></a>
 			<a href="<c:url value="/Profil"/>"><button>Mon profil</button></a>
-			<a href="<c:url value="/Logout"/>"><button>Déconnexion</button></a>
+			<a href="<c:url value="/Logout"/>"><button>Déconnexion</button></a><br>
+			
+			<c:if test="${!empty sessionScope.sessionUtilisateur}">
+            	<p class="succes">Bonjour ${sessionScope.sessionUser.userPseudo}</p>
+            </c:if>
 		</header>
 		<main>
 			<h2>Liste des enchères</h2>
