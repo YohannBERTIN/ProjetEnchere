@@ -17,7 +17,7 @@
 			<a href="<c:url value="/Logout"/>"><button>Déconnexion</button></a><br>
 			
 			<c:if test="${!empty sessionScope.sessionUser}">
-            	<p class="succes">Bonjour ${sessionScope.sessionUser.user.pseudo}</p>
+            	<p class="succes">Bonjour ${sessionScope.sessionUser.pseudo}</p>
             </c:if>
 		</header>
 		<main>
