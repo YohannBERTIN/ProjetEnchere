@@ -18,10 +18,12 @@
 				<!-- Zone d'affichage du message d'erreur -->
                 <p class="info">${ message }</p>
                 
-				<label for="userPseudo">Identifiant : </label><br>
-				<input type="text" name="userPseudo"><br>
-				<label for="userPassword">Mot de passe : </label><br>
-				<input type="text" name="userPassword"><br>
+				<label for="userPseudo">Identifiant : </label>
+				<input type="text" name="userPseudo">
+				<span class="erreur">${form.errors['userPseudo']}</span><br>
+				<label for="userPassword">Mot de passe : </label>
+				<input type="text" name="userPassword">
+				<span class="erreur">${form.errors['userPassword']}</span><br>
 				<input type="submit" value="Connexion"><br>
 				<input type="checkbox" name="remember">
 	  			<label for="remember">Se souvenir de moi</label><br>
