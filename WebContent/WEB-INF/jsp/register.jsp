@@ -75,6 +75,7 @@
                 </fieldset>
                 <input type="submit" value="Créer" class="sansLabel" />
             </form>
+            
             <!-- Annuler renvoie l'utilisateur vers l'index du site -->
             <a href="<c:url value="/Index"/>"><button class="sansLabel">Annuler</button></a><br />
         </div>
