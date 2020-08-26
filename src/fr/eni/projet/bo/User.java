@@ -5,7 +5,7 @@ package fr.eni.projet.bo;
  * @author Yohann BERTIN
  *
  */
-public class Utilisateur {
+public class User {
 	
 	private int noUtilisateur;
 	private String pseudo;

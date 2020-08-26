@@ -16,7 +16,7 @@ public class ArticlesVendu {
 	private LocalDateTime dateFinEnchere;
 	private int prixInitial;
 	private int prixVente;
-	private Utilisateur noUtilisateur;
+	private User noUtilisateur;
 	private Categorie noCategorie;
 	
 	/**
@@ -34,7 +34,7 @@ public class ArticlesVendu {
 	 * 
 	 */
 	public ArticlesVendu(int noArticle, String nomArticle, String description, LocalDateTime dateDebutEnchere,
-			LocalDateTime dateFinEnchere, int prixInitial, int prixVente, Utilisateur noUtilisateur,
+			LocalDateTime dateFinEnchere, int prixInitial, int prixVente, User noUtilisateur,
 			Categorie noCategorie) {
 		this.noArticle = noArticle;
 		this.nomArticle = nomArticle;
@@ -148,14 +148,14 @@ public class ArticlesVendu {
 	/**
 	 * @return the noUtilisateur
 	 */
-	public Utilisateur getNoUtilisateur() {
+	public User getNoUtilisateur() {
 		return noUtilisateur;
 	}
 
 	/**
 	 * @param noUtilisateur the noUtilisateur to set
 	 */
-	public void setNoUtilisateur(Utilisateur noUtilisateur) {
+	public void setNoUtilisateur(User noUtilisateur) {
 		this.noUtilisateur = noUtilisateur;
 	}
 

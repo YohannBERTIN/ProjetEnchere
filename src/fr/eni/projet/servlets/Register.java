@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.eni.projet.bo.Utilisateur;
+import fr.eni.projet.bo.User;
 
 /**
  * Servlet gérant la création d'un client/utilisateur
@@ -93,7 +93,7 @@ public class Register extends HttpServlet {
         /*
          * Création du bean Client et initialisation avec les données récupérées
          */
-        Utilisateur user = new Utilisateur();
+        User user = new User();
         user.setPseudo(pseudo);
         user.setNom(nom);
         user.setPrenom(prenom);
