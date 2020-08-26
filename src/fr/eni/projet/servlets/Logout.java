@@ -10,8 +10,8 @@ import javax.servlet.http.HttpSession;
 
 /**
  * Servlet permettant la déconnection de l'utilisateur
- * Cette servlet est liée au lien <a>Se Déconnecter</a> de la jsp enchèresConnected
- * Servlet implementation class ServletLogout
+ * Cette servlet est liée au lien <a>Se Déconnecter</a> de la jsp "index_login.jsp"
+ * Servlet implementation class Logout
  */
 @WebServlet("/Logout")
 public class Logout extends HttpServlet {
@@ -25,7 +25,7 @@ public class Logout extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		response.sendRedirect("http://localhost:8080/ProjetEnchere/Index");
+		response.sendRedirect("/Index");
 	}
 
 	/**
