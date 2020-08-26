@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.eni.projet.bo.Utilisateurs;
+import fr.eni.projet.bo.Utilisateur;
 
 /**
  * Servlet gérant la création d'un client/utilisateur
@@ -18,7 +18,7 @@ import fr.eni.projet.bo.Utilisateurs;
 @WebServlet("/Register")
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -51,28 +51,45 @@ public class Register extends HttpServlet {
          * du formulaire n'est pas renseigné, alors on affiche un message
          * d'erreur, sinon on affiche un message de succès
          */
-        if (pseudo.trim().isEmpty() || nom.trim().isEmpty() || prenom.trim().isEmpty() || email.trim().isEmpty() || rue.trim().isEmpty() || codePostal.trim().isEmpty() || ville.trim().isEmpty() || mdp.trim().isEmpty()) {
+        if (pseudo.trim().isEmpty() || nom.trim().isEmpty() || prenom.trim().isEmpty() || email.trim().isEmpty() || rue.trim().isEmpty() || 
+        	codePostal.trim().isEmpty() || ville.trim().isEmpty() || mdp.trim().isEmpty() || confirmMdp.trim().isEmpty()) {
             
         	message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires.";
         	request.setAttribute( "message", message );
             this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/register.jsp").forward(request, response);
             
-            
-        } else if (mdp.trim().toString() != null && mdp.trim().equals(confirmMdp)){
-            
-        	message = "Client créé avec succès !";
+        } else if (email.contains("@")) {
+        	
+        	if (mdp.equals(confirmMdp)) {
+        		
+        		message = "Client créé avec succès !";
+        		
+        	} else {
+            	
+            	message = "Les mots de passe ne correspondent pas !";
+            	request.setAttribute( "message", message );
+            	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/register.jsp").forward(request, response);
+            	
+        	}
+        	
+        } else {
+        	
+            message = "L'adresse email n'est pas une adresse valide";
+            request.setAttribute( "message", message );
+            this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/register.jsp").forward(request, response);
         	
         }
+        
         /*
          * Création du bean Client et initialisation avec les données récupérées
          */
-        Utilisateurs user = new Utilisateurs();
+        Utilisateur user = new Utilisateur();
         user.setPseudo(pseudo);
-        user.setNom( nom );
-        user.setPrenom( prenom );
+        user.setNom(nom);
+        user.setPrenom(prenom);
         user.setEmail(email);
         user.setTelephone(telephone);
-        user.setRue( rue );
+        user.setRue(rue);
         user.setCodePostal(codePostal);
         user.setVille(ville);
         user.setMotDePasse(mdp);
