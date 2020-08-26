@@ -45,9 +45,19 @@ public class Register extends HttpServlet {
         /* Ajout du bean et du message à l'objet requête */
         request.setAttribute( ATT_FORM, form );
         request.setAttribute( ATT_USER, user );
-
-        /* Transmission à la page JSP en charge de l'affichage des données */
-        this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/index_login.jsp" ).forward( request, response );
+        
+        if (form.getErrors().isEmpty()) {
+        	
+        	/* Transmission à la page JSP en charge de l'affichage des données */
+        	 this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/index_login.jsp" ).forward( request, response );
+        
+        } else {
+        	
+        	this.getServletContext().getRequestDispatcher(VIEW).forward(request, response);
+        	        	
+        }
+        
+       
     }
 	
 }

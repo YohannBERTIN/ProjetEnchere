@@ -2,13 +2,15 @@ package fr.eni.projet.servlets;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import fr.eni.projet.bll.LoginForm;
+import fr.eni.projet.bo.User;
 
 /**
  * Servlet implementation class ServletLogin
@@ -17,21 +19,18 @@ import javax.servlet.http.HttpSession;
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	public static final String LOGIN_ADMIN = "admin";
-	public static final String MDP_ADMIN = "admin";
-	public static final String LOGIN = "login";
-	public static final String MDP = "mdp";
+	public static final String REDIRECTION = "/WEB-INF/jsp/index_login.jsp";
+	public static final String ATT_USER = "user";
+	public static final String ATT_FORM = "form";
+	public static final String ATT_SESSION_USER = "sessionUser";
+	public static final String VIEW = "/WEB-INF/jsp/login.jsp";
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
-//		rd.forward(request, response);
-		this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
-		
-		
+		this.getServletContext().getRequestDispatcher(VIEW).forward(request, response);
 	}
-
+	
 	/**
 	 * Méthode doPost
 	 * Cette méthode nous sert donc à:
@@ -42,39 +41,38 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//Stocker les nomUtiliasateur et mdp dans des variables pour les insérer / comparer avec la base de donnée
-		String loginInput = request.getParameter(LOGIN);
-		String mdpInput = request.getParameter(MDP);
-		String message = "";
-		// Compare les entrées client avec les login et mdp Admin
-		if(LOGIN_ADMIN.equals(loginInput) && MDP_ADMIN.equals(mdpInput)) {
+		
+		LoginForm form = new LoginForm();
+		
+		User user = form.loginUser(request);
+		
+		 //Créer la session
+		HttpSession session = request.getSession();
+		
+		
+		if(form.getErrors().isEmpty()) {
 			
-			message = "Bienvenue cher(e) : " + loginInput;
-			request.setAttribute("message", message);
-			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/index_login.jsp").forward(request, response);
-						
+			session.setAttribute(ATT_SESSION_USER, user);
+			
 		} else {
 			
-			message = "Nom d'utilisateur ou Mot de passe inconnu. Merci de saisir une Nom d'utilisateur et/ou un mot de passe connu.";
-			request.setAttribute("message", message);
-			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
+			session.setAttribute(ATT_SESSION_USER, null);
 			
 		}
 		
-		//Comparer login et mdp avec la base de données
+		request.setAttribute(ATT_FORM, form);
+		request.setAttribute(ATT_USER, user);
 		
-		
-		
-		// Créer la session
-		//HttpSession session = request.getSession();
-		
-		
-		
-		
-		//Redirection vers la jsp affichage enchère mode connecté
-		//RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/index_login.jsp");
-		//rd.forward(request, response);
-		
+		 if (form.getErrors().isEmpty()) {
+	        	
+	        /* Transmission à la page JSP en charge de l'affichage des données */
+			this.getServletContext().getRequestDispatcher(REDIRECTION).forward( request, response );
+	        
+	     } else {
+	        	
+	    	this.getServletContext().getRequestDispatcher(VIEW).forward(request, response);
+	        	        	
+	     }
 		
 	}
 
