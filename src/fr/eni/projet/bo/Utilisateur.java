@@ -2,10 +2,10 @@ package fr.eni.projet.bo;
 
 /**
  * 
- * @author Kunkero
+ * @author Yohann BERTIN
  *
  */
-public class Utilisateurs {
+public class Utilisateur {
 	
 	private int noUtilisateur;
 	private String pseudo;
@@ -22,7 +22,8 @@ public class Utilisateurs {
 	
 	
 	/**
-	 * 
+	 * A FAIRE : récupérer le numero attribué par la BDD SQL
+	 * sur le setter !
 	 * @return
 	 */
 	public int getNoUtilisateur() {
@@ -120,6 +121,4 @@ public class Utilisateurs {
 	public void setAdministrateur(int administrateur) {
 		this.administrateur = administrateur;
 	}
-	
-	
 }

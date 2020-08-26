@@ -2,10 +2,10 @@ package fr.eni.projet.bo;
 
 /**
  * 
- * @author Kunkero
+ * @author Yohann BERTIN
  *
  */
-public class Retraits {
+public class Retrait {
 	
 	private int noArticle;
 	private String rue;
@@ -18,7 +18,7 @@ public class Retraits {
 	 * @param codePostal
 	 * @param ville
 	 */
-	public Retraits(int noArticle, String rue, String codePostal, String ville) {
+	public Retrait(int noArticle, String rue, String codePostal, String ville) {
 		super();
 		this.noArticle = noArticle;
 		this.rue = rue;
@@ -87,7 +87,7 @@ public class Retraits {
 	 */
 	@Override
 	public String toString() {
-		return "Retraits [noArticle=" + noArticle + ", rue=" + rue + ", codePostal=" + codePostal + ", ville=" + ville
+		return "Retrait [noArticle=" + noArticle + ", rue=" + rue + ", codePostal=" + codePostal + ", ville=" + ville
 				+ "]";
 	}
 }

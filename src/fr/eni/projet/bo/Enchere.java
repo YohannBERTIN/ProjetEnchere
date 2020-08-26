@@ -4,10 +4,10 @@ import java.time.LocalDateTime;
 
 /**
  * 
- * @author Kunkero
+ * @author Yohann BERTIN
  *
  */
-public class Encheres {
+public class Enchere {
 	
 	private int noUtilisateur;
 	private int noArticle;
@@ -20,7 +20,7 @@ public class Encheres {
 	 * @param dateEnchere
 	 * @param montantEnchere
 	 */
-	public Encheres(int noUtilisateur, int noArticle, LocalDateTime dateEnchere, int montantEnchere) {
+	public Enchere(int noUtilisateur, int noArticle, LocalDateTime dateEnchere, int montantEnchere) {
 		super();
 		this.noUtilisateur = noUtilisateur;
 		this.noArticle = noArticle;
@@ -89,7 +89,7 @@ public class Encheres {
 	 */
 	@Override
 	public String toString() {
-		return "Encheres [noUtilisateur=" + noUtilisateur + ", noArticle=" + noArticle + ", dateEnchere=" + dateEnchere
+		return "Enchere [noUtilisateur=" + noUtilisateur + ", noArticle=" + noArticle + ", dateEnchere=" + dateEnchere
 				+ ", montantEnchere=" + montantEnchere + "]";
 	}
 }

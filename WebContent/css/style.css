@@ -9,6 +9,10 @@ button {
     border: 1px #999 solid;
 }
 
+button.sansLabel {
+    margin-left: 200px;
+}
+
 /* Forms --------------------------------------------------------------------------------------- */
 fieldset {
     padding: 10px;

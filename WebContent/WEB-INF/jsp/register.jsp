@@ -4,54 +4,79 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- @author Yohann BERTIN -->
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link type="text/css" rel="stylesheet" href="<c:url value="./css/style.css"/>" />
 		<title>Mon profil</title>
 	</head>
 	<body>
 		<div>
+		
+		<!-- Formulaire de création de compte utilisateur -->
             <form method="post" action="<c:url value="/Register"/>">
                 <fieldset>
                     <legend>Mon profil</legend>
+                    
+                    <!-- Zone d'affichage du message d'erreur -->
                     <p class="info">${ message }</p>
+                    
                     <div class="form">
 	                    <div class="form-box">
 		                    <label for="userPseudo">Pseudo : <span class="required">*</span></label>
-		                    <input type="text" id="userPseudo" name="userPseudo" value="" size="20" maxlength="20" />
+		                    <input type="text" id="userPseudo" name="userPseudo" value="" size="30" maxlength="30" />
+		                    <span class="erreur">${form.erreurs['userPseudo']}</span>	<!-- ATTENTION : form.erreur est le nom de la class.la variable erreur -->
 		                    <br />
+		                    
 		                    <label for="userFirstName">Prénom : <span class="required">*</span></label>
-		                    <input type="text" id="userFirstName" name="userFirstName" value="" size="20" maxlength="20" />
+		                    <input type="text" id="userFirstName" name="userFirstName" value="" size="30" maxlength="30" />
+		                    <span class="erreur">${form.erreurs['userFirstName']}</span>
 		                    <br />
+		                    
 		                    <label for="userPhone">Téléphone : </label>
-		                    <input type="text" id="userPhone" name="userPhone" value="" size="20" maxlength="20" />
+		                    <input type="text" id="userPhone" name="userPhone" value="" size="30" maxlength="30" />
+		                    <span class="erreur">${form.erreurs['userPhone']}</span>
 		                    <br />
+		                    
 		                    <label for="userZip">Code postal : <span class="required">*</span></label>
-		                    <input type="text" id="userZip" name="userZip" value="" size="20" maxlength="20" />
+		                    <input type="text" id="userZip" name="userZip" value="" size="30" maxlength="30" />
+		                    <span class="erreur">${form.erreurs['userZip']}</span>
 		                    <br />
+		                    
 		                    <label for="userPassword">Mot de passe : <span class="required">*</span></label>
-		                    <input type="text" id="userPassword" name="userPassword" value="" size="20" maxlength="20" />
+		                    <input type="text" id="userPassword" name="userPassword" value="" size="30" maxlength="30" />
 	                    </div>
+	                    
 	                    <div class="form-box">
 		                    <label for="userLastName">Nom : <span class="required">*</span></label>
-		                    <input type="text" id="userLastName" name="userLastName" value="" size="20" maxlength="20" />
+		                    <input type="text" id="userLastName" name="userLastName" value="" size="30" maxlength="30" />
+		                    <span class="erreur">${form.erreurs['userLastName']}</span>
 		                    <br />
+		                    
 		                    <label for="userEmail">Email : <span class="required">*</span></label>
-		                    <input type="email" id="userEmail" name="userEmail" value="" size="20" maxlength="60" />
+		                    <input type="email" id="userEmail" name="userEmail" value="" size="30" maxlength="30" />
+		                    <span class="erreur">${form.erreurs['userEmail']}</span>
 		                    <br />
+		                    
 		                    <label for="userStreet">Rue : <span class="required">*</span></label>
-		                    <input type="text" id="userStreet" name="userStreet" value="" size="20" maxlength="20" />
+		                    <input type="text" id="userStreet" name="userStreet" value="" size="30" maxlength="30" />
+		                    <span class="erreur">${form.erreurs['userStreet']}</span>
 		                    <br />
+		                    
 		                    <label for="userCity">Ville : <span class="required">*</span></label>
-		                    <input type="text" id="userCity" name="userCity" value="" size="20" maxlength="20" />
+		                    <input type="text" id="userCity" name="userCity" value="" size="30" maxlength="30" />
+		                    <span class="erreur">${form.erreurs['userCity']}</span>
 		                    <br />
+		                    
 		                    <label for="userConfirmation">Confirmation : <span class="required">*</span></label>
-		                    <input type="text" id="userConfirmation" name="userConfirmation" value="" size="20" maxlength="20" />
+		                    <input type="text" id="userConfirmation" name="userConfirmation" value="" size="30" maxlength="30" />
+		                    <span class="erreur">${form.erreurs['userPassword']}</span>
 	                    </div>
                     </div>
                 </fieldset>
-                <input type="submit" value="Créer"  />
+                <input type="submit" value="Créer" class="sansLabel" />
             </form>
-            <a href="<c:url value="/Index"/>"><button>Annuler</button></a><br />
+            <!-- Annuler renvoie l'utilisateur vers l'index du site -->
+            <a href="<c:url value="/Index"/>"><button class="sansLabel">Annuler</button></a><br />
         </div>
 	</body>
 </html>

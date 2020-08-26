@@ -1,6 +1,11 @@
 package fr.eni.projet.bo;
 
-public class Categories {
+/**
+ * 
+ * @author Yohan SAINT-MARTIN
+ *
+ */
+public class Categorie {
 
 	private int noCategorie;
 	private String libelle;
@@ -11,7 +16,7 @@ public class Categories {
 	 * @param libelle
 	 * 
 	 */
-	public Categories(int noCategorie, String libelle) {
+	public Categorie(int noCategorie, String libelle) {
 		this.noCategorie = noCategorie;
 		this.libelle = libelle;
 	}
@@ -49,7 +54,7 @@ public class Categories {
 	 */
 	@Override
 	public String toString() {
-		return "Categories [noCategorie=" + noCategorie + ", libelle=" + libelle + "]";
+		return "Categorie [noCategorie=" + noCategorie + ", libelle=" + libelle + "]";
 	}
 	
 	

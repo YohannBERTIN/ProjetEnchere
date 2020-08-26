@@ -2,7 +2,12 @@ package fr.eni.projet.bo;
 
 import java.time.LocalDateTime;
 
-public class ArticlesVendus {
+/**
+ * 
+ * @author Yohan SAINT-MARTIN
+ *
+ */
+public class ArticlesVendu {
 
 	private int noArticle;
 	private String nomArticle;
@@ -11,12 +16,12 @@ public class ArticlesVendus {
 	private LocalDateTime dateFinEnchere;
 	private int prixInitial;
 	private int prixVente;
-	private Utilisateurs noUtilisateur;
-	private Categories noCategorie;
+	private Utilisateur noUtilisateur;
+	private Categorie noCategorie;
 	
 	/**
 	 * 
-	 * Constructeur de Classe ArticleVendus
+	 * Constructeur de Classe ArticleVendu
 	 * @param noArticle
 	 * @param nomArticle
 	 * @param description
@@ -28,9 +33,9 @@ public class ArticlesVendus {
 	 * @param noCategorie
 	 * 
 	 */
-	public ArticlesVendus(int noArticle, String nomArticle, String description, LocalDateTime dateDebutEnchere,
-			LocalDateTime dateFinEnchere, int prixInitial, int prixVente, Utilisateurs noUtilisateur,
-			Categories noCategorie) {
+	public ArticlesVendu(int noArticle, String nomArticle, String description, LocalDateTime dateDebutEnchere,
+			LocalDateTime dateFinEnchere, int prixInitial, int prixVente, Utilisateur noUtilisateur,
+			Categorie noCategorie) {
 		this.noArticle = noArticle;
 		this.nomArticle = nomArticle;
 		this.description = description;
@@ -143,28 +148,28 @@ public class ArticlesVendus {
 	/**
 	 * @return the noUtilisateur
 	 */
-	public Utilisateurs getNoUtilisateur() {
+	public Utilisateur getNoUtilisateur() {
 		return noUtilisateur;
 	}
 
 	/**
 	 * @param noUtilisateur the noUtilisateur to set
 	 */
-	public void setNoUtilisateur(Utilisateurs noUtilisateur) {
+	public void setNoUtilisateur(Utilisateur noUtilisateur) {
 		this.noUtilisateur = noUtilisateur;
 	}
 
 	/**
 	 * @return the noCategorie
 	 */
-	public Categories getNoCategorie() {
+	public Categorie getNoCategorie() {
 		return noCategorie;
 	}
 
 	/**
 	 * @param noCategorie the noCategorie to set
 	 */
-	public void setNoCategorie(Categories noCategorie) {
+	public void setNoCategorie(Categorie noCategorie) {
 		this.noCategorie = noCategorie;
 	}
 
@@ -173,7 +178,7 @@ public class ArticlesVendus {
 	 */
 	@Override
 	public String toString() {
-		return "ArticlesVendus [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" + description
+		return "ArticlesVendu [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" + description
 				+ ", dateDebutEnchere=" + dateDebutEnchere + ", dateFinEnchere=" + dateFinEnchere + ", prixInitial="
 				+ prixInitial + ", prixVente=" + prixVente + ", noUtilisateur=" + noUtilisateur + ", noCategorie="
 				+ noCategorie + "]";
