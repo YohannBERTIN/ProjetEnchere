@@ -25,7 +25,7 @@ public class Logout extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		response.sendRedirect("http://localhost:8080/ProjetEnchere/Login");
+		response.sendRedirect("http://localhost:8080/ProjetEnchere/Index");
 	}
 
 	/**
