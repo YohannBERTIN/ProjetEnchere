@@ -49,7 +49,7 @@ public class Login extends HttpServlet {
 		// Compare les entrées client avec les login et mdp Admin
 		if(LOGIN_ADMIN.equals(loginInput) && MDP_ADMIN.equals(mdpInput)) {
 			
-			message = "Bienvenue cher(e) : " + LOGIN_ADMIN;
+			message = "Bienvenue cher(e) : " + loginInput;
 			request.setAttribute("message", message);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/index_login.jsp").forward(request, response);
 						

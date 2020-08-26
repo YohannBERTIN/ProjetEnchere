@@ -19,6 +19,16 @@ import fr.eni.projet.bo.Utilisateur;
 public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	public static final String PSEUDO = "userPseudo";
+	public static final String LAST_NAME = "userLastName";
+	public static final String FIRST_NAME = "userFirstName";
+	public static final String EMAIL = "userEmail";
+	public static final String PHONE = "userPhone";
+	public static final String STREET = "userStreet";
+	public static final String ZIPCODE = "userZip";
+	public static final String CITY = "userCity";
+	public static final String PASSWORD = "userPassword";
+	public static final String CONFIRMPWD = "userConfirmation";
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -35,16 +45,16 @@ public class Register extends HttpServlet {
 		
 		// Récupération des données saisies, envoyés en tant que paramètres
 		// de la requête de type POST générée à la validation du formaulaire
-		String pseudo = request.getParameter("userPseudo");
-		String nom = request.getParameter("userLastName");
-		String prenom = request.getParameter("userFirstName");
-		String email = request.getParameter("userEmail");
-		String telephone = request.getParameter("userPhone");
-		String rue = request.getParameter("userStreet");
-		String codePostal = request.getParameter("userZip");
-		String ville = request.getParameter("userCity");
-		String mdp = request.getParameter("userPassword");
-		String confirmMdp = request.getParameter("userConfirmation");
+		String pseudo = request.getParameter(PSEUDO);
+		String nom = request.getParameter(LAST_NAME);
+		String prenom = request.getParameter(FIRST_NAME);
+		String email = request.getParameter(EMAIL);
+		String telephone = request.getParameter(PHONE);
+		String rue = request.getParameter(STREET);
+		String codePostal = request.getParameter(ZIPCODE);
+		String ville = request.getParameter(CITY);
+		String mdp = request.getParameter(PASSWORD);
+		String confirmMdp = request.getParameter(CONFIRMPWD);
 		String message = "";
         /*
          * Initialisation du message à afficher : si un des champs obligatoires
