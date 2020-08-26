@@ -7,18 +7,18 @@ package fr.eni.projet.bo;
  */
 public class User {
 	
-	private int noUtilisateur;
+	private int userId;
 	private String pseudo;
-	private String nom;
-	private String prenom;
+	private String lastName;
+	private String firstName;
 	private String email;
-	private String telephone;
-	private String rue;
-	private String codePostal;
-	private String ville;
-	private String motDePasse;
+	private String phone;
+	private String street;
+	private String zip;
+	private String city;
+	private String password;
 	private int credit;
-	private int administrateur;
+	private int administrator;
 	
 	
 	/**
@@ -26,99 +26,149 @@ public class User {
 	 * sur le setter !
 	 * @return
 	 */
-	public int getNoUtilisateur() {
-		return noUtilisateur;
+	public int getUserId() {
+		return userId;
 	}
-
-	public void setNoUtilisateur(int noUtilisateur) {
-		this.noUtilisateur = noUtilisateur;
+	/**
+	 * @param noUtilisateur the noUtilisateur to set
+	 */
+	public void setUserID(int userId) {
+		this.userId = userId;
 	}
-
+	/**
+	 * @return the pseudo
+	 */
 	public String getPseudo() {
 		return pseudo;
 	}
-
+	/**
+	 * @param pseudo the pseudo to set
+	 */
 	public void setPseudo(String pseudo) {
 		this.pseudo = pseudo;
 	}
-
-	public String getNom() {
-		return nom;
+	/**
+	 * @return the lastName
+	 */
+	public String getLastName() {
+		return lastName;
 	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
+	/**
+	 * @param lastName the lastName to set
+	 */
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
-
-	public String getPrenom() {
-		return prenom;
+	/**
+	 * @return the firstName
+	 */
+	public String getFirstName() {
+		return firstName;
 	}
-
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
+	/**
+	 * @param firstName the firstName to set
+	 */
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-
+	/**
+	 * @return the email
+	 */
 	public String getEmail() {
 		return email;
 	}
-
+	/**
+	 * @param email the email to set
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public String getTelephone() {
-		return telephone;
+	/**
+	 * @return the phone
+	 */
+	public String getPhone() {
+		return phone;
 	}
-
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
+	/**
+	 * @param phone the phone to set
+	 */
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
-
-	public String getRue() {
-		return rue;
+	/**
+	 * @return the street
+	 */
+	public String getStreet() {
+		return street;
 	}
-
-	public void setRue(String rue) {
-		this.rue = rue;
+	/**
+	 * @param street the street to set
+	 */
+	public void setStreet(String street) {
+		this.street = street;
 	}
-
-	public String getCodePostal() {
-		return codePostal;
+	/**
+	 * @return the zip
+	 */
+	public String getZip() {
+		return zip;
 	}
-
-	public void setCodePostal(String codePostal) {
-		this.codePostal = codePostal;
+	/**
+	 * @param zip the zip to set
+	 */
+	public void setZip(String zip) {
+		this.zip = zip;
 	}
-
-	public String getVille() {
-		return ville;
+	/**
+	 * @return the city
+	 */
+	public String getCity() {
+		return city;
 	}
-
-	public void setVille(String ville) {
-		this.ville = ville;
+	/**
+	 * @param city the city to set
+	 */
+	public void setCity(String city) {
+		this.city = city;
 	}
-
-	public String getMotDePasse() {
-		return motDePasse;
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
 	}
-
-	public void setMotDePasse(String motDePasse) {
-		this.motDePasse = motDePasse;
+	/**
+	 * @param password the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
 	}
-
+	/**
+	 * @return the credit
+	 */
 	public int getCredit() {
 		return credit;
 	}
-
+	/**
+	 * @param credit the credit to set
+	 */
 	public void setCredit(int credit) {
 		this.credit = credit;
 	}
-
-	public int getAdministrateur() {
-		return administrateur;
+	/**
+	 * @return the administrator
+	 */
+	public int getAdministrator() {
+		return administrator;
 	}
-
-	public void setAdministrateur(int administrateur) {
-		this.administrateur = administrateur;
+	/**
+	 * @param administrator the administrator to set
+	 */
+	public void setAdministrator(int administrator) {
+		this.administrator = administrator;
 	}
+	
+	
+	
+	
 }
