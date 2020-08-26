@@ -18,10 +18,10 @@
 				<!-- Zone d'affichage du message d'erreur -->
                 <p class="info">${ message }</p>
                 
-				<label for="login">Identifiant : </label><br>
-				<input type="text" name="login"><br>
-				<label for="mdp">Mot de passe : </label><br>
-				<input type="text" name="mdp"><br>
+				<label for="userPseudo">Identifiant : </label><br>
+				<input type="text" name="userPseudo"><br>
+				<label for="userPassword">Mot de passe : </label><br>
+				<input type="text" name="userPassword"><br>
 				<input type="submit" value="Connexion"><br>
 				<input type="checkbox" name="remember">
 	  			<label for="remember">Se souvenir de moi</label><br>
