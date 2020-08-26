@@ -14,6 +14,10 @@
 		</header>
 		<main>
 			<form method="post" action="<c:url value="/Login"/>">
+			
+				<!-- Zone d'affichage du message d'erreur -->
+                <p class="info">${ message }</p>
+                
 				<label for="login">Identifiant : </label><br>
 				<input type="text" name="login"><br>
 				<label for="mdp">Mot de passe : </label><br>
