@@ -73,6 +73,8 @@ public class RegisterForm {
 		user.setCity(city);
 		user.setPassword(confirmPassword);
 		user.setCredit(0);
+		user.setAdministrator(0);
+		
 		
 		if (errors.isEmpty()) {
 			
