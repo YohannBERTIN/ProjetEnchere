@@ -5,6 +5,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import fr.eni.projet.bo.User;
+
 
 public class RegisterForm {
 
@@ -31,6 +33,106 @@ public class RegisterForm {
 	}
 	
 	public User registerUser(HttpServletRequest request) {
+		
+		String pseudo = getFieldValue(request, PSEUDO_FIELD);
+		String lastName = getFieldValue(request, LAST_NAME_FIELD);
+		String firstName = getFieldValue(request, FIRST_NAME_FIELD);
+		String email = getFieldValue(request, EMAIL_FIELD);
+		String phone = getFieldValue(request, PHONE_FIELD);
+		String street = getFieldValue(request, STREET_FIELD);
+		String zip = getFieldValue(request, ZIPCODE_FIELD);
+		String city = getFieldValue(request, CITY_FIELD);
+		String password = getFieldValue(request, PASSWORD_FIELD);
+		String confirmPassword = getFieldValue(request, CONFIRMPWD_FIELD);
+		
+		User user = new User();
+		
+		try {
+			emailValidation(email);
+		} catch (Exception e) {
+			setError( EMAIL_FIELD, e.getMessage());
+		}
+		
+		user.setEmail(email);
+		
+		try {
+			passwordValidation(password, confirmPassword);
+		} catch (Exception e) {
+			setError(PASSWORD_FIELD, e.getMessage());
+			setError(CONFIRMPWD_FIELD, null);
+		}
+		
+		user.setPassword(password);
+		
+		user.setPseudo(pseudo);
+		user.setFirstName(firstName);
+		user.setLastName(lastName);
+		user.setPhone(phone);
+		user.setStreet(street);
+		user.setZip(zip);
+		user.setCity(city);
+		user.setPassword(confirmPassword);
+		user.setCredit(0);
+		
+		if (errors.isEmpty()) {
+			
+			result = "Succès de l'inscription";
+			
+		} else {
+			
+			result = "Echec de l'inscription";
+			
+		}
+		
 		return user;
+	}
+	
+	private static String getFieldValue(HttpServletRequest request, String fieldName) {
+		String value = request.getParameter(fieldName);
+		
+		if (value == null || value.trim().length() == 0) {
+			
+			return null;
+			
+		} else {
+			
+			return value.trim();
+			
+		}
+	}
+	
+	private void emailValidation(String email) throws Exception {
+		
+		if (email != null) {
+			
+			if (!email.contains("@")) {
+				
+				throw new Exception ("Merci de saisir une adresse email valide !");
+				
+			}
+		} else {
+			
+			throw new Exception ("Merci de saisir une adresse email !");
+			
+		}
+	}
+	
+	private void passwordValidation(String password, String confirmPassword) throws Exception {
+		
+		if (password != null && confirmPassword != null) {
+			
+			if (!password.equals(confirmPassword)) {
+				throw new Exception("Les mots de passe entrés sont différents, Merci de les saisir à nouveau !");
+			}
+			
+		} else {
+			
+			throw new Exception("Merci de saisir et confirmer votre mot de passe");
+			
+		}
+	}
+	
+	private void setError(String fieldName, String message) {
+		errors.put(fieldName, message);
 	}
 }
