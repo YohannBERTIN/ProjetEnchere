@@ -5,7 +5,10 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import fr.eni.projet.BusinessException;
 import fr.eni.projet.bo.User;
+import fr.eni.projet.dal.DAOFactory;
+import fr.eni.projet.dal.UserDAO;
 
 
 public class RegisterForm {
@@ -21,6 +24,8 @@ public class RegisterForm {
 	public static final String PASSWORD_FIELD = "userPassword";
 	public static final String CONFIRMPWD_FIELD = "userConfirmation";
 	
+	private UserDAO userDAO;
+	
 	private String result;
 	private Map<String, String> errors = new HashMap<String,String>();
 	
@@ -32,7 +37,9 @@ public class RegisterForm {
 		return errors;
 	}
 	
-	public User registerUser(HttpServletRequest request) {
+	public User registerUser(HttpServletRequest request) throws BusinessException {
+		
+		this.userDAO = DAOFactory.getUserDAO();
 		
 		String pseudo = getFieldValue(request, PSEUDO_FIELD);
 		String lastName = getFieldValue(request, LAST_NAME_FIELD);
@@ -78,6 +85,7 @@ public class RegisterForm {
 		
 		if (errors.isEmpty()) {
 			
+			this.userDAO.insert(user);
 			result = "Succès de l'inscription";
 			
 		} else {
@@ -85,7 +93,7 @@ public class RegisterForm {
 			result = "Echec de l'inscription";
 			
 		}
-		
+		//insert( user);
 		return user;
 	}
 	

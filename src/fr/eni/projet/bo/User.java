@@ -7,7 +7,7 @@ package fr.eni.projet.bo;
  */
 public class User {
 	
-	private int userId;
+	private Long userId;
 	private String pseudo;
 	private String lastName;
 	private String firstName;
@@ -26,13 +26,13 @@ public class User {
 	 * sur le setter !
 	 * @return
 	 */
-	public int getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
 	/**
 	 * @param noUtilisateur the noUtilisateur to set
 	 */
-	public void setUserID(int userId) {
+	public void setUserID(Long userId) {
 		this.userId = userId;
 	}
 	/**

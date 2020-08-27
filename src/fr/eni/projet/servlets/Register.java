@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.eni.projet.BusinessException;
 import fr.eni.projet.bll.RegisterForm;
 import fr.eni.projet.bo.User;
 
@@ -39,7 +40,12 @@ public class Register extends HttpServlet {
 		
 		RegisterForm form = new RegisterForm();
 		
-		User user = form.registerUser(request);
+		User user = null;
+		try {
+			user = form.registerUser(request);
+		} catch (BusinessException e) {
+			e.printStackTrace();
+		}
 		
 
         /* Ajout du bean et du message à l'objet requête */
