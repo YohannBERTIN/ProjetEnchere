@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Index")
 public class Index extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	public static final String VIEW = "/WEB-INF/jsp/index.jsp";
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -38,7 +40,7 @@ public class Index extends HttpServlet {
 	 */
 	protected void goToIndex(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher(VIEW).forward(request, response);
 		
 	}
 }

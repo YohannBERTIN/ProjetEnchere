@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.eni.projet.BusinessException;
 import fr.eni.projet.bll.LoginForm;
 import fr.eni.projet.bo.User;
 
@@ -44,13 +45,18 @@ public class Login extends HttpServlet {
 		
 		LoginForm form = new LoginForm();
 		
-		User user = form.loginUser(request);
+		User user = null;
+		try {
+			user = form.loginUser(request);
+		} catch (BusinessException e) {
+			e.printStackTrace();
+		}
 		
 		 //Créer la session
 		HttpSession session = request.getSession();
 		
 		
-		if(form.getErrors().isEmpty()) {
+		if(user != null) {
 			
 			session.setAttribute(ATT_SESSION_USER, user);
 			

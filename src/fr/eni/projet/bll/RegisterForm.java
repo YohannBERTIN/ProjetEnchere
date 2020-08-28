@@ -93,7 +93,7 @@ public class RegisterForm {
 			result = "Echec de l'inscription";
 			
 		}
-		//insert( user);
+		
 		return user;
 	}
 	

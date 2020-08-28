@@ -5,12 +5,17 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import fr.eni.projet.BusinessException;
 import fr.eni.projet.bo.User;
+import fr.eni.projet.dal.DAOFactory;
+import fr.eni.projet.dal.UserDAO;
 
 public class LoginForm {
 
 	public static final String PSEUDO_FIELD = "userPseudo";
 	public static final String PASSWORD_FIELD = "userPassword";
+	
+	private UserDAO userDAO;
 	
 	private String result;
 	private Map<String, String> errors = new HashMap<String,String>();
@@ -23,36 +28,41 @@ public class LoginForm {
 		return errors;
 	}
 	
-	public User loginUser(HttpServletRequest request) {
+	public User loginUser(HttpServletRequest request) throws BusinessException {
 		
 		String pseudo = getFieldValue(request, PSEUDO_FIELD);
 		String password = getFieldValue(request, PASSWORD_FIELD);
 		
-		User user = new User();
+		this.userDAO = DAOFactory.getUserDAO();
+		
+		User userBDD = this.userDAO.search(pseudo);
+		User userLogin;
 		
 		try {
-			pseudoValidation(pseudo);
+			pseudoValidation(pseudo, userBDD);
 		} catch (Exception e) {
 			setError(PSEUDO_FIELD, e.getMessage());
 		}
 		
-		user.setPseudo(pseudo);
-		
 		try {
-			passwordValidation(password);
+			passwordValidation(password, userBDD);
 		} catch (Exception e) {
 			setError(PASSWORD_FIELD, e.getMessage());	
 		}
 		
-		user.setPassword(password);
-		
 		if(errors.isEmpty()) {
+			
 			result = "Succès de la connexion";
+			userLogin = userBDD;
+			
 		} else {
+			
 			result = "Echec de la connexion";
+			userLogin = null;
+			
 		}
 		
-		return user;
+		return userLogin;
 	}
 	
 	private static String getFieldValue(HttpServletRequest request, String fieldName) {
@@ -69,9 +79,12 @@ public class LoginForm {
 		}
 	}
 	
-	private void pseudoValidation(String pseudo) throws Exception {
+	private void pseudoValidation(String pseudo, User user) throws Exception {
+		
 		if(pseudo != null) {
-			if(!pseudo.equals("admin")) {
+	
+			if(!pseudo.equals(user.getPseudo())) {
+				
 				throw new Exception("Utilisateur non reconnu !");
 			} 
 		} else {
@@ -79,9 +92,11 @@ public class LoginForm {
 		}
 	}
 	
-	private void passwordValidation(String password) throws Exception {
+	private void passwordValidation(String password, User user) throws Exception {
+		
 		if(password != null) {
-			if(!password.equals("admin")) {
+			
+			if(!password.equals(user.getPassword())) {
 				throw new Exception("Mot de passe erroné");
 			} 
 		} else {
