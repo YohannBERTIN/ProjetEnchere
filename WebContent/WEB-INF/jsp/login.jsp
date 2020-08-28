@@ -22,7 +22,7 @@
 				<input type="text" name="userPseudo">
 				<span class="erreur">${form.errors['userPseudo']}</span><br>
 				<label for="userPassword">Mot de passe : </label>
-				<input type="text" name="userPassword">
+				<input type="password" name="userPassword">
 				<span class="erreur">${form.errors['userPassword']}</span><br>
 				<input type="submit" value="Connexion"><br>
 				<input type="checkbox" name="remember">
