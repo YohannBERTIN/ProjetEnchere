@@ -92,6 +92,7 @@ public class RegisterForm {
 			
 			this.userDAO.insert(user);
 			result = "Succès de l'inscription";
+			System.out.println(pseudo + " " + lastName + " " + firstName + " " + email + " " + phone + " " + street + " " + zip + " " + city + " " + password );
 			
 		} else {
 			
