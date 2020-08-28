@@ -53,6 +53,12 @@ public class RegisterForm {
 		String confirmPassword = getFieldValue(request, CONFIRMPWD_FIELD);
 		
 		User user = new User();
+		try {
+			pseudoValidation(pseudo);
+		} catch (Exception e) {
+			setError( PSEUDO_FIELD, e.getMessage());
+		}
+		user.setPseudo(pseudo);
 		
 		try {
 			emailValidation(email);
@@ -71,7 +77,6 @@ public class RegisterForm {
 		
 		user.setPassword(password);
 		
-		user.setPseudo(pseudo);
 		user.setFirstName(firstName);
 		user.setLastName(lastName);
 		user.setPhone(phone);
@@ -97,6 +102,12 @@ public class RegisterForm {
 		return user;
 	}
 	
+	/**
+	 * Verification for detecting null value on getParameter
+	 * @param request
+	 * @param fieldName
+	 * @return
+	 */
 	private static String getFieldValue(HttpServletRequest request, String fieldName) {
 		String value = request.getParameter(fieldName);
 		
@@ -111,14 +122,47 @@ public class RegisterForm {
 		}
 	}
 	
+	/**
+	 * Verification for detecting if it is in database.
+	 * @param pseudo
+	 * @throws Exception
+	 */
+	private void pseudoValidation(String pseudo) throws Exception {
+		
+		if (pseudo != null) {
+			
+			User userBDD = this.userDAO.search(pseudo);
+			
+			if (pseudo.equals(userBDD.getPseudo())) {
+				
+				throw new Exception ("Ce pseudo est déjà pris, veuillez en choisir un autre !");
+				
+			}
+		} else {
+			
+			throw new Exception ("Merci de saisir un pseudo !");
+			
+		}
+	}
+	
+	/**
+	 * Verification for detecting if it is in database.
+	 * @param email
+	 * @throws Exception
+	 */
 	private void emailValidation(String email) throws Exception {
 		
 		if (email != null) {
+			
+			User userBDD = this.userDAO.searchEmail(email);
 			
 			if (!email.contains("@")) {
 				
 				throw new Exception ("Merci de saisir une adresse email valide !");
 				
+			} else if (email.equals(userBDD.getEmail())) {
+				
+				throw new Exception ("Ce mail est déjà utiliser, veuillez en choisir un autre !");
 			}
 		} else {
 			
@@ -127,6 +171,12 @@ public class RegisterForm {
 		}
 	}
 	
+	/**
+	 * Verification for detecting if two password are the same.
+	 * @param password
+	 * @param confirmPassword
+	 * @throws Exception
+	 */
 	private void passwordValidation(String password, String confirmPassword) throws Exception {
 		
 		if (password != null && confirmPassword != null) {

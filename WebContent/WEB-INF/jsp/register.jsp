@@ -24,6 +24,7 @@
 	                    <div class="form-box">
 		                    <label for="userPseudo">Pseudo : <span class="required">*</span></label>
 		                    <input type="text" id="userPseudo" name="userPseudo" value="<c:out value="${param.userPseudo}"/>" size="30" maxlength="30" />
+		                    <span class="erreur">${form.errors['userPseudo']}</span>
 		                    <br />
 		                    
 		                    <label for="userFirstName">Prénom : <span class="required">*</span></label>

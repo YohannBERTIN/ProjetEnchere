@@ -13,5 +13,7 @@ public interface UserDAO {
 	void insert(User user) throws BusinessException;
 	
 	User search(String userPseudo) throws BusinessException;
+	
+	User searchEmail(String userEmail) throws BusinessException;
 
 }

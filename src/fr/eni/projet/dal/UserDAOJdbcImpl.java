@@ -37,6 +37,19 @@ public class UserDAOJdbcImpl implements UserDAO {
 			+ "mot_de_passe, "
 			+ "credit, "
 			+ "administrateur FROM UTILISATEURS WHERE pseudo = ?";
+	private static final String SEARCH_EMAIL="SELECT "
+			+ "no_utilisateur, "
+			+ "pseudo, "
+			+ "nom, "
+			+ "prenom, "
+			+ "email, "
+			+ "telephone, "
+			+ "rue, "
+			+ "code_postal, "
+			+ "ville, "
+			+ "mot_de_passe, "
+			+ "credit, "
+			+ "administrateur FROM UTILISATEURS WHERE email = ?";
 	
 	@Override
 	public void insert(User user) throws BusinessException {
@@ -102,6 +115,45 @@ public class UserDAOJdbcImpl implements UserDAO {
 				
 				PreparedStatement pstmt = cnx.prepareStatement(SEARCH_USER);
 				pstmt.setString(1, userPseudo);
+				
+				ResultSet rs = pstmt.executeQuery();
+				
+				user = new User();
+				while(rs.next()) {
+					user = userBuilder(rs);
+				}
+				
+				rs.close();
+				pstmt.close();
+				
+				cnx.commit();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+				cnx.rollback();
+				throw e;
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			businessException.ajouterErreur(CodesResultatDAL.INSERT_OBJET_ECHEC);
+			throw businessException;
+		}
+		return user;
+	}
+	
+	@Override
+	public User searchEmail(String userEmail) throws BusinessException {
+		User user = null;
+		
+		try(Connection cnx = ConnectionProvider.getConnection()) {
+	
+			try {
+				cnx.setAutoCommit(false);
+				
+				PreparedStatement pstmt = cnx.prepareStatement(SEARCH_EMAIL);
+				pstmt.setString(1, userEmail);
 				
 				ResultSet rs = pstmt.executeQuery();
 				
