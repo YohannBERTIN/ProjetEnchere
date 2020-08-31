@@ -36,8 +36,8 @@ public class UserDAOJdbcImpl implements UserDAO {
 			+ "ville, "
 			+ "mot_de_passe, "
 			+ "credit, "
-			+ "administrateur FROM UTILISATEURS WHERE pseudo = ?";
-	private static final String SEARCH_EMAIL="SELECT "
+			+ "administrateur FROM UTILISATEURS WHERE ? = ?";
+	private static final String MODIFY_MAIL="SELECT "
 			+ "no_utilisateur, "
 			+ "pseudo, "
 			+ "nom, "
@@ -49,7 +49,17 @@ public class UserDAOJdbcImpl implements UserDAO {
 			+ "ville, "
 			+ "mot_de_passe, "
 			+ "credit, "
-			+ "administrateur FROM UTILISATEURS WHERE email = ?";
+			+ "administrateur FROM UTILISATEURS WHERE ? = ? and ? != ?";
+	private static final String UPDATE_USER="UPDATE UTILISATEURS SET " 
+			+ "pseudo = ?, "
+			+ "nom = ?, "
+			+ "prenom = ?, "
+			+ "email = ?, "
+			+ "telephone = ?, "
+			+ "rue = ?, "
+			+ "code_postal = ?, "
+			+ "ville = ?, "
+			+ "mot_de_passe = ? WHERE no_utilisateur = ?";
 	
 	@Override
 	public void insert(User user) throws BusinessException {
@@ -104,8 +114,15 @@ public class UserDAOJdbcImpl implements UserDAO {
 		}
 	}
 
+	/**
+	 * Search method for user table on database
+	 * @param column = no_utilisateur, pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur
+	 * @param colValue = value to test
+	 * @return
+	 * @throws BusinessException
+	 */
 	@Override
-	public User search(String userPseudo) throws BusinessException {
+	public User search(String column, String colValue) throws BusinessException {
 		User user = null;
 		
 		try(Connection cnx = ConnectionProvider.getConnection()) {
@@ -114,7 +131,8 @@ public class UserDAOJdbcImpl implements UserDAO {
 				cnx.setAutoCommit(false);
 				
 				PreparedStatement pstmt = cnx.prepareStatement(SEARCH_USER);
-				pstmt.setString(1, userPseudo);
+				pstmt.setString(1, column);
+				pstmt.setString(2, colValue);
 				
 				ResultSet rs = pstmt.executeQuery();
 				
@@ -144,7 +162,7 @@ public class UserDAOJdbcImpl implements UserDAO {
 	}
 	
 	@Override
-	public User searchEmail(String userEmail) throws BusinessException {
+	public User validMail(String column1, String colValue1, String column2, Long colValue2) throws BusinessException {
 		User user = null;
 		
 		try(Connection cnx = ConnectionProvider.getConnection()) {
@@ -152,8 +170,11 @@ public class UserDAOJdbcImpl implements UserDAO {
 			try {
 				cnx.setAutoCommit(false);
 				
-				PreparedStatement pstmt = cnx.prepareStatement(SEARCH_EMAIL);
-				pstmt.setString(1, userEmail);
+				PreparedStatement pstmt = cnx.prepareStatement(MODIFY_MAIL);
+				pstmt.setString(1, column1);
+				pstmt.setString(2, colValue1);
+				pstmt.setString(1, column2);
+				pstmt.setLong(2, colValue2);
 				
 				ResultSet rs = pstmt.executeQuery();
 				
@@ -180,6 +201,51 @@ public class UserDAOJdbcImpl implements UserDAO {
 			throw businessException;
 		}
 		return user;
+	}
+	
+	@Override
+	public void updateUser(User user) throws BusinessException {
+		if(user==null) {
+			BusinessException businessException = new BusinessException();
+			businessException.ajouterErreur(CodesResultatDAL.INSERT_OBJET_NULL);
+			throw businessException;
+		}
+		
+		try(Connection cnx = ConnectionProvider.getConnection()) {
+			
+			try {
+				cnx.setAutoCommit(false);
+				
+				PreparedStatement pstmt = cnx.prepareStatement(UPDATE_USER);
+				pstmt.setString(1, user.getPseudo());
+				pstmt.setString(2, user.getLastName());
+				pstmt.setString(3, user.getFirstName());
+				pstmt.setString(4, user.getEmail());
+				pstmt.setString(5, user.getPhone());
+				pstmt.setString(6, user.getStreet());
+				pstmt.setString(7, user.getZip());
+				pstmt.setString(8, user.getCity());
+				pstmt.setString(9, user.getPassword());
+				pstmt.setLong(10, user.getUserId());
+				
+				pstmt.executeUpdate();
+				
+				pstmt.close();
+				
+				cnx.commit();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+				cnx.rollback();
+				throw e;
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			businessException.ajouterErreur(CodesResultatDAL.INSERT_OBJET_ECHEC);
+			throw businessException;
+		}
 	}
 	
 	private User userBuilder(ResultSet rs) throws SQLException {

@@ -12,8 +12,11 @@ public interface UserDAO {
 	 */
 	void insert(User user) throws BusinessException;
 	
-	User search(String userPseudo) throws BusinessException;
+	User search(String column, String colValue) throws BusinessException;
 	
-	User searchEmail(String userEmail) throws BusinessException;
+	User validMail(String column1, String colValue1, String column2, Long colValue2) throws BusinessException;
+	
+	void updateUser(User user) throws BusinessException;
+	
 
 }

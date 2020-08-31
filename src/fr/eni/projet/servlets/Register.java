@@ -58,8 +58,8 @@ public class Register extends HttpServlet {
         if (form.getErrors().isEmpty()) {
         	
         	/* Transmission à la page JSP en charge de l'affichage des données */
-        	 this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/index_login.jsp" ).forward( request, response );
-        	 session.setAttribute(ATT_SESSION_USER, user);
+        	session.setAttribute(ATT_SESSION_USER, user);
+        	this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/index_login.jsp" ).forward( request, response );
         
         } else {
         	

@@ -23,6 +23,9 @@ public class RegisterForm {
 	public static final String CITY_FIELD = "userCity";
 	public static final String PASSWORD_FIELD = "userPassword";
 	public static final String CONFIRMPWD_FIELD = "userConfirmation";
+	public static final String BDD_ID = "no_utilisateur";
+	public static final String BDD_MAIL = "email";
+	public static final String BDD_PSEUDO = "pseudo";
 	
 	private UserDAO userDAO;
 	
@@ -83,7 +86,6 @@ public class RegisterForm {
 		user.setStreet(street);
 		user.setZip(zip);
 		user.setCity(city);
-		user.setPassword(confirmPassword);
 		user.setCredit(0);
 		user.setAdministrator(0);
 		
@@ -132,7 +134,7 @@ public class RegisterForm {
 		
 		if (pseudo != null) {
 			
-			User userBDD = this.userDAO.search(pseudo);
+			User userBDD = this.userDAO.search(BDD_PSEUDO, pseudo);
 			
 			if (pseudo.equals(userBDD.getPseudo())) {
 				
@@ -155,7 +157,7 @@ public class RegisterForm {
 		
 		if (email != null) {
 			
-			User userBDD = this.userDAO.searchEmail(email);
+			User userBDD = this.userDAO.search(BDD_MAIL, email);
 			
 			if (!email.contains("@")) {
 				

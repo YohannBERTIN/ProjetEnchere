@@ -40,7 +40,7 @@ public class ModifyProfil extends HttpServlet {
 		User user = null;
 		
 		try {
-			user = form.registerUser(request);  // <-------------------- XXXX
+			user = form.modifyUser(request);
 		} catch (BusinessException e) {
 			e.printStackTrace();
 		}
