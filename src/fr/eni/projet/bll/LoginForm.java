@@ -14,6 +14,9 @@ public class LoginForm {
 
 	public static final String PSEUDO_FIELD = "userPseudo";
 	public static final String PASSWORD_FIELD = "userPassword";
+	public static final String BDD_ID = "no_utilisateur";
+	public static final String BDD_MAIL = "email";
+	public static final String BDD_PSEUDO = "pseudo";
 	
 	private UserDAO userDAO;
 	
@@ -35,7 +38,7 @@ public class LoginForm {
 		
 		this.userDAO = DAOFactory.getUserDAO();
 		
-		User userBDD = this.userDAO.search(pseudo);
+		User userBDD = this.userDAO.search(BDD_PSEUDO, pseudo);
 		User userLogin;
 		
 		try {
