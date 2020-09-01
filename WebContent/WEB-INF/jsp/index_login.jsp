@@ -12,7 +12,7 @@
 		<header>
 			<h1>ENI-Enchère</h1>
 			<a href="<c:url value="/Auction"/>"><button>Enchères</button></a>
-			<a href="<c:url value="/Sell"/>"><button>Vendre un article</button></a>
+			<a href="<c:url value="/New_auction"/>"><button>Vendre un article</button></a>
 			<a href="<c:url value="/Profil"/>"><button>Mon profil</button></a>
 			<a href="<c:url value="/Logout"/>"><button>Déconnexion</button></a><br>
 			
