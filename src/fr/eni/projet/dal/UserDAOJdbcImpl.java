@@ -60,6 +60,7 @@ public class UserDAOJdbcImpl implements UserDAO {
 			+ "code_postal = ?, "
 			+ "ville = ?, "
 			+ "mot_de_passe = ? WHERE no_utilisateur = ?";
+	private static final String DELETE_USER="DELETE FROM UTILISATEURS WHERE no_utilisateur = ?";
 	
 	@Override
 	public void insert(User user) throws BusinessException {
@@ -246,6 +247,32 @@ public class UserDAOJdbcImpl implements UserDAO {
 			businessException.ajouterErreur(CodesResultatDAL.INSERT_OBJET_ECHEC);
 			throw businessException;
 		}
+	}
+	
+	@Override
+	public void deleteUser(String userID) throws BusinessException {
+		try(Connection cnx = ConnectionProvider.getConnection()) {
+			try {
+				cnx.setAutoCommit(false);
+				
+				PreparedStatement pstmt = cnx.prepareStatement(DELETE_USER);
+				pstmt.setString(1, userID);
+				
+				pstmt.close();
+				
+				cnx.commit();
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+				cnx.rollback();
+				throw e;
+			}	
+		} catch(Exception e) {
+			e.printStackTrace();
+			BusinessException businessException = new BusinessException();
+			businessException.ajouterErreur(CodesResultatDAL.INSERT_OBJET_ECHEC);
+			throw businessException;
+		}	
 	}
 	
 	private User userBuilder(ResultSet rs) throws SQLException {

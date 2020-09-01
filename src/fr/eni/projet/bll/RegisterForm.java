@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import fr.eni.projet.BusinessException;
+import fr.eni.projet.Form;
 import fr.eni.projet.bo.User;
 import fr.eni.projet.dal.DAOFactory;
 import fr.eni.projet.dal.UserDAO;
@@ -44,16 +45,16 @@ public class RegisterForm {
 		
 		this.userDAO = DAOFactory.getUserDAO();
 		
-		String pseudo = getFieldValue(request, PSEUDO_FIELD);
-		String lastName = getFieldValue(request, LAST_NAME_FIELD);
-		String firstName = getFieldValue(request, FIRST_NAME_FIELD);
-		String email = getFieldValue(request, EMAIL_FIELD);
-		String phone = getFieldValue(request, PHONE_FIELD);
-		String street = getFieldValue(request, STREET_FIELD);
-		String zip = getFieldValue(request, ZIPCODE_FIELD);
-		String city = getFieldValue(request, CITY_FIELD);
-		String password = getFieldValue(request, PASSWORD_FIELD);
-		String confirmPassword = getFieldValue(request, CONFIRMPWD_FIELD);
+		String pseudo = getFieldValue(request, Form.userPseudo);
+		String lastName = getFieldValue(request, Form.userLastName);
+		String firstName = getFieldValue(request, Form.userFirstName);
+		String email = getFieldValue(request, Form.userEmail);
+		String phone = getFieldValue(request, Form.userPhone);
+		String street = getFieldValue(request, Form.userStreet);
+		String zip = getFieldValue(request, Form.userZipCode);
+		String city = getFieldValue(request, Form.userCity);
+		String password = getFieldValue(request, Form.userPassword);
+		String confirmPassword = getFieldValue(request, Form.userConfirmPassword);
 		
 		User user = new User();
 		try {
@@ -88,7 +89,6 @@ public class RegisterForm {
 		user.setCity(city);
 		user.setCredit(0);
 		user.setAdministrator(0);
-		
 		
 		if (errors.isEmpty()) {
 			
