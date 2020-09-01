@@ -36,7 +36,7 @@ public class UserDAOJdbcImpl implements UserDAO {
 			+ "ville, "
 			+ "mot_de_passe, "
 			+ "credit, "
-			+ "administrateur FROM UTILISATEURS WHERE ? = ?";
+			+ "administrateur FROM UTILISATEURS WHERE ";
 	private static final String MODIFY_MAIL="SELECT "
 			+ "no_utilisateur, "
 			+ "pseudo, "
@@ -126,19 +126,24 @@ public class UserDAOJdbcImpl implements UserDAO {
 	public User search(String column, String colValue) throws BusinessException {
 		User user = null;
 		
+		//test
+		System.out.println("UserDAOJdbcImpl");
+		System.out.println("param recherche : colonne = " + column + " valeur = " + colValue);
+		
 		try(Connection cnx = ConnectionProvider.getConnection()) {
 	
 			try {
 				cnx.setAutoCommit(false);
 				
-				PreparedStatement pstmt = cnx.prepareStatement(SEARCH_USER);
-				pstmt.setString(1, column);
-				pstmt.setString(2, colValue);
+				PreparedStatement pstmt = cnx.prepareStatement(SEARCH_USER + column + " = ?");
+				//pstmt.setString(1, column);
+				pstmt.setString(1, colValue);
 				
 				ResultSet rs = pstmt.executeQuery();
 				
 				user = new User();
 				while(rs.next()) {
+					System.out.println("-- entré dans le rs.next");
 					user = userBuilder(rs);
 				}
 				
@@ -159,6 +164,10 @@ public class UserDAOJdbcImpl implements UserDAO {
 			businessException.ajouterErreur(CodesResultatDAL.INSERT_OBJET_ECHEC);
 			throw businessException;
 		}
+		//test
+		System.out.println("UserDAOJdbcImpl");
+		System.out.println(user);
+		
 		return user;
 	}
 	

@@ -168,6 +168,16 @@ public class User {
 		this.administrator = administrator;
 	}
 	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", pseudo=" + pseudo + ", lastName=" + lastName + ", firstName=" + firstName
+				+ ", email=" + email + ", phone=" + phone + ", street=" + street + ", zip=" + zip + ", city=" + city
+				+ ", password=" + password + ", credit=" + credit + ", administrator=" + administrator + "]";
+	}
+	
 	
 	
 	
