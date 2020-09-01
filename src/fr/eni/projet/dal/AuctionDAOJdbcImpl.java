@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import fr.eni.projet.BusinessException;
 import fr.eni.projet.bo.Auctions;
 import fr.eni.projet.bo.Pickup;
-import fr.eni.projet.bo.SoldItems;
+import fr.eni.projet.bo.Item;
 
 public class AuctionDAOJdbcImpl implements AuctionDAO {
 
@@ -31,7 +31,7 @@ public class AuctionDAOJdbcImpl implements AuctionDAO {
 		private static final String DELETE_AUCTION="DELETE FROM ARTICLES_VENDUS WHERE no_article = ?";
 		
 		@Override
-		public void insert(SoldItems soldItem, Auctions auction, Pickup pickup) throws BusinessException {
+		public void insert(Item soldItem, Auctions auction, Pickup pickup) throws BusinessException {
 			if(soldItem==null || auction==null || pickup==null) {
 				BusinessException businessException = new BusinessException();
 				businessException.ajouterErreur(CodesResultatDAL.INSERT_OBJET_NULL);

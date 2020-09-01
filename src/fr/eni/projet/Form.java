@@ -23,15 +23,28 @@ public final class Form {
 	
 	// Form auction : Add, Modify, Delete...etc...
 	
-	public static String auctionTitle = "auctionTitle";
-	public static String auctionDescription = "auctionDescription";
-	public static String auctionCategory = "auctionCategory";
-	public static String auctionPhoto = "auctionPhoto";
-	public static String auctionStartPrice = "auctionStartPrice";
-	public static String auctionStartDate = "auctionStartDate";
-	public static String auctionEndDate = "auctionEndDate";
 	
+	
+	// Form item : Add, Delete
+	
+	public static String itemTitle = "itemTitle";
+	public static String itemDescription = "itemDescription";
+	public static String itemCategory = "itemCategory";
+	public static String itemPhoto = "itemPhoto";
+	public static String itemStartPrice = "itemStartPrice";
+	public static String itemStartDate = "itemStartDate";
+	public static String itemEndDate = "itemEndDate";
+	public static String itemStartTime = "itemStartTime";
+	public static String itemEndTime = "itemEndTime";
 	
 	// Form search : auction with options...
+	
+	
+	
+	// Form Pickup : add, Modify, Delete ...
+	
+	public static String pickupStreet = "pickupStreet";
+	public static String pickupZip = "pickupZip";
+	public static String pickupCity = "pickupCity";
 
 }

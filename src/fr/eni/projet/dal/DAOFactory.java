@@ -10,5 +10,9 @@ public abstract class DAOFactory {
 	public static AuctionDAO getAuctionDAO() {
 		return new AuctionDAOJdbcImpl();
 	}
+	
+	public static ItemDAO getItemDAO() {
+		return new ItemDAOJdbcImpl();
+	}
 }
 	

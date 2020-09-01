@@ -22,44 +22,46 @@
 			<p class="info">${ message }</p>
 			<div class="form">
 				<div class="form-box">
-					<label for="auctionName">Article : <span class="required">*</span></label>
-					<input type="text" id="auctionName" name="auctionName" size="30" maxlength="30" required/>
+					<label for="itemName">Article : <span class="required">*</span></label>
+					<input type="text" id="itemName" name="itemName" size="30" maxlength="30" required/>
 					<span class="erreur">${ form.errors['auctionName'] } </span>
 					<br/>
 					
-					<label for="auctionDescription">Description : <span class="required">*</span></label>
-					<textarea id="auctionDescription" name="auctionDescription" rows="5" cols="50" required></textarea>
+					<label for="itemDescription">Description : <span class="required">*</span></label>
+					<textarea id="itemDescription" name="itemDescription" rows="5" cols="50" required></textarea>
 					<span class="erreur">${ form.errors['auctionDescription'] } </span>
 					<br/>
 					
-					<label for="auctionCategory">Catégorie : <span class="required">*</span></label>
-					<select id="auctionCategory" name="auctionCategory" required>
-					<option>àrenommer</option>
-					<option>oubliepasderenommer</option>
-					<option>attentionilfautrenommer</option>
-					<option>avecdesdonnéesdelaBDD</option>
+					<label for="itemCategory">Catégorie : <span class="required">*</span></label>
+					<select id="itemCategory" name="itemCategory" required>
+					<option>Jouets</option>
+					<option>Livres</option>
+					<option>Meubles</option>
+					<option>Vêtmements</option>
 					</select>
 					<span class="erreur">${ form.errors['auctionCategory'] } </span>
 					<br/>
 					
-					<label for="auctionPhoto">Photo de l'article : <span class="required">*</span></label>
-					<input type="file" id="auctionPhoto" name="auctionPhoto" multiple/>
+					<label for="itemPicture">Photo de l'article : <span class="required">*</span></label>
+					<input type="file" id="itemPicture" name="itemPicture" multiple/>
 					<span class="erreur">${ form.errors['auctionDescription'] } </span>
 					<br/>
 					
-					<label for="auctionStartPrice">Mise à prix : <span class="required">*</span></label>
-					<input type="text" id="auctionStartPrice" name="auctionStartPrice" value="1" size="5" maxlength="5" required/>
+					<label for="itemInitPrice">Mise à prix : <span class="required">*</span></label>
+					<input type="text" id="itemInitPrice" name="itemInitPrice" value="1" size="5" maxlength="5" required/>
 					<span class="erreur">${ form.errors['auctionStartPrice'] } </span>
 					<br/>
 					
-					<label for="auctionStartDate">Début de l'enchère : </label>
-  					<input type="date" id="auctionStartDate" name="auctionStartDate"/>
+					<label for="itemStartDate">Début de l'enchère : </label>
+  					<input type="date" id="itemStartDate" name="itemStartDate"/>
 					<span class="erreur">${ form.errors['auctionStartDate'] } </span>
+					<input type="time" name="timeStart" id="timeStart"/>
 					<br/>
 					
-					<label for="auctionEndDate">Début de l'enchère : </label>
-  					<input type="date" id="auctionEndDate" name="auctionEndDate"/>
+					<label for="itemEndDate">Fin de l'enchère : </label>
+  					<input type="date" id="itemEndDate" name="itemEndDate"/>
 					<span class="erreur">${ form.errors['auctionEndDate'] } </span>	
+					<input type="time" name="itemEndtime" id="itemEndtime"/>
 					<br/>	
 				</div>
 			</div>		
@@ -71,16 +73,16 @@
 			<legend>Retrait</legend>
 			<div class="form">
 				<div class="form-box">
-					<label for="userStreet">Rue : <span class="required">*</span></label>
-					<input type="text" id="userStreet" name="userStreet" value="<c:out value="${sessionScope.sessionUser.street}"/>" size="30" maxlength="30" required/>
+					<label for="pickupStreet">Rue : <span class="required">*</span></label>
+					<input type="text" id="pickupStreet" name="pickupStreet" value="<c:out value="${sessionScope.sessionUser.street}"/>" size="30" maxlength="30" required/>
 					<br/>
 					
-					 <label for="userZip">Code postal : <span class="required">*</span></label>
-		             <input type="text" id="userZip" name="userZip" value="<c:out value="${sessionScope.sessionUser.zip}"/>" size="30" maxlength="30" />
+					 <label for="pickupZip">Code postal : <span class="required">*</span></label>
+		             <input type="text" id="pickupZip" name="pickupZip" value="<c:out value="${sessionScope.sessionUser.zip}"/>" size="30" maxlength="30" />
 		             <br />
 					
-					<label for="userCity">Ville : <span class="required">*</span></label>
-					<input type="text" id="userCity" name="userCity" value="<c:out value="${sessionScope.sessionUser.city}"/>" size="5" maxlength="5" required/>
+					<label for="pickupCity">Ville : <span class="required">*</span></label>
+					<input type="text" id="pickupCity" name="pickupCity" value="<c:out value="${sessionScope.sessionUser.city}"/>" size="5" maxlength="5" required/>
 					<br/>
 				</div>
 			</div>

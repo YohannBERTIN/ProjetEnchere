@@ -1,6 +1,7 @@
 package fr.eni.projet.bo;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 /**
@@ -8,17 +9,19 @@ import java.util.List;
  * @author Yohan SAINT-MARTIN
  *
  */
-public class SoldItems {
+public class Item {
 
 	private int noArticle;
 	private String nomArticle;
 	private String description;
-	private LocalDateTime dateDebutEnchere;
-	private LocalDateTime dateFinEnchere;
+	private LocalDate dateDebutEnchere;
+	private LocalDate dateFinEnchere;
+	private LocalTime itemStartTime;
+	private LocalTime itemEndTime;
 	private int prixInitial;
 	private int prixVente;
-	private User noUtilisateur;
-	private Categorie noCategorie;
+	private int noUtilisateur;
+	private int noCategorie;
 	private List<Auctions> auctions;
 	private Pickup pickup;
 
@@ -67,28 +70,28 @@ public class SoldItems {
 	/**
 	 * @return the dateDebutEnchere
 	 */
-	public LocalDateTime getDateDebutEnchere() {
+	public LocalDate getDateDebutEnchere() {
 		return dateDebutEnchere;
 	}
 
 	/**
 	 * @param dateDebutEnchere the dateDebutEnchere to set
 	 */
-	public void setDateDebutEnchere(LocalDateTime dateDebutEnchere) {
+	public void setDateDebutEnchere(LocalDate dateDebutEnchere) {
 		this.dateDebutEnchere = dateDebutEnchere;
 	}
 
 	/**
 	 * @return the dateFinEnchere
 	 */
-	public LocalDateTime getDateFinEnchere() {
+	public LocalDate getDateFinEnchere() {
 		return dateFinEnchere;
 	}
 
 	/**
 	 * @param dateFinEnchere the dateFinEnchere to set
 	 */
-	public void setDateFinEnchere(LocalDateTime dateFinEnchere) {
+	public void setDateFinEnchere(LocalDate dateFinEnchere) {
 		this.dateFinEnchere = dateFinEnchere;
 	}
 
@@ -123,28 +126,28 @@ public class SoldItems {
 	/**
 	 * @return the noUtilisateur
 	 */
-	public User getNoUtilisateur() {
+	public int getNoUtilisateur() {
 		return noUtilisateur;
 	}
 
 	/**
 	 * @param noUtilisateur the noUtilisateur to set
 	 */
-	public void setNoUtilisateur(User noUtilisateur) {
+	public void setNoUtilisateur(int noUtilisateur) {
 		this.noUtilisateur = noUtilisateur;
 	}
 
 	/**
 	 * @return the noCategorie
 	 */
-	public Categorie getNoCategorie() {
+	public int getNoCategorie() {
 		return noCategorie;
 	}
 
 	/**
 	 * @param noCategorie the noCategorie to set
 	 */
-	public void setNoCategorie(Categorie noCategorie) {
+	public void setNoCategorie(int noCategorie) {
 		this.noCategorie = noCategorie;
 	}
 
@@ -157,6 +160,62 @@ public class SoldItems {
 				+ ", dateDebutEnchere=" + dateDebutEnchere + ", dateFinEnchere=" + dateFinEnchere + ", prixInitial="
 				+ prixInitial + ", prixVente=" + prixVente + ", noUtilisateur=" + noUtilisateur + ", noCategorie="
 				+ noCategorie + "]";
+	}
+
+	/**
+	 * @return the auctions
+	 */
+	public List<Auctions> getAuctions() {
+		return auctions;
+	}
+
+	/**
+	 * @param auctions the auctions to set
+	 */
+	public void setAuctions(List<Auctions> auctions) {
+		this.auctions = auctions;
+	}
+
+	/**
+	 * @return the pickup
+	 */
+	public Pickup getPickup() {
+		return pickup;
+	}
+
+	/**
+	 * @param pickup the pickup to set
+	 */
+	public void setPickup(Pickup pickup) {
+		this.pickup = pickup;
+	}
+
+	/**
+	 * @return the timeStart
+	 */
+	public LocalTime getTimeStart() {
+		return itemStartTime;
+	}
+
+	/**
+	 * @param timeStart the timeStart to set
+	 */
+	public void setTimeStart(LocalTime itemStartTime) {
+		this.itemStartTime = itemStartTime;
+	}
+
+	/**
+	 * @return the timeEnd
+	 */
+	public LocalTime getTimeEnd() {
+		return itemEndTime;
+	}
+
+	/**
+	 * @param timeEnd the timeEnd to set
+	 */
+	public void setTimeEnd(LocalTime itemEndTime) {
+		this.itemEndTime = itemEndTime;
 	}
 	
 	

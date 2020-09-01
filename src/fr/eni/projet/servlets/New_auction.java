@@ -7,11 +7,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import fr.eni.projet.BusinessException;
-import fr.eni.projet.Form;
-import fr.eni.projet.bll.AuctionForm;
-import fr.eni.projet.bo.SoldItems;
+import fr.eni.projet.View;
+import fr.eni.projet.bll.ItemForm;
+import fr.eni.projet.bo.User;
+
+
+
 
 /**
  * Servlet implementation class New_auction
@@ -19,14 +22,13 @@ import fr.eni.projet.bo.SoldItems;
 @WebServlet("/New_auction")
 public class New_auction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	public static final String VIEW = "/WEB-INF/jsp/new_auction.jsp";
+	public static final String ATT_SESSION_USER = "sessionUser";
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher(VIEW).forward(request, response);
+		this.getServletContext().getRequestDispatcher(View.newAuction).forward(request, response);
 		
 	}
 
@@ -34,14 +36,17 @@ public class New_auction extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+				
+		ItemForm form = new ItemForm();
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute(ATT_SESSION_USER);
 		
-		AuctionForm form = new AuctionForm();
+		request.setAttribute("sessionUser", user);
 		
-		SoldItems solditem = null;
 		
-		System.out.println(request.getParameter(Form.auctionStartDate));
 		
-
+		this.getServletContext().getRequestDispatcher(View.newAuction).forward(request, response);
+		
 		
 	}
 
