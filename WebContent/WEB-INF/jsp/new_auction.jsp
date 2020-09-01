@@ -15,7 +15,7 @@
 	<h1>ENI-Enchères</h1>
 	</header>
 	<!-- Formulaire de création d'une vente -->
-	<form method="post" action="<c:url value="/New_Auction"/>">
+	<form method="post" action="<c:url value="/New_auction"/>">
 		<fieldset>
 			<legend>Nouvelle Vente</legend>
 			<!-- Zone D'affichage du message d'erreur -->
