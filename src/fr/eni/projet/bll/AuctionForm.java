@@ -1,5 +1,6 @@
 package fr.eni.projet.bll;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,9 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import fr.eni.projet.BusinessException;
 import fr.eni.projet.Form;
+import fr.eni.projet.bo.Auctions;
+import fr.eni.projet.bo.Pickup;
+import fr.eni.projet.bo.SoldItems;
 import fr.eni.projet.dal.AuctionDAO;
 import fr.eni.projet.dal.DAOFactory;
-import fr.eni.projet.servlets.Auction;
 
 public class AuctionForm {
 
@@ -20,6 +23,10 @@ public class AuctionForm {
 	public static final String START_PRICE_FIELD = "auctionStartPrice";
 	public static final String START_DATE_FIELD = "auctionStartDate";
 	public static final String END_DATE_FIELD = "auctionEndDate";
+	
+	public static final String STREET_FIELD = "userStreet";
+	public static final String ZIP_FIELD = "userZip";
+	public static final String CITY_FIELD = "userCity";
 	
 	//public static final String BDD_ID = "no_utilisateur";
 	//public static final String BDD_ITEM_ID = "no_article";
@@ -37,7 +44,25 @@ public class AuctionForm {
 		return errors;
 	}
 	
-	public Auction addAuction(HttpServletRequest request) throws BusinessException {
+	public Auctions addAuction(HttpServletRequest request) throws BusinessException {
+		
+		this.auctionDAO = DAOFactory.getAuctionDAO();
+		
+		
+		int startPrice = Integer.parseInt(getFieldValue(request, Form.auctionStartPrice));
+		String startDate = getFieldValue(request, Form.auctionStartDate);
+		LocalDateTime endDate = getFieldValue(request, Form.auctionEndDate);
+		
+		Auctions auction = new Auctions();
+		
+		auction.setMontantEnchere(startPrice);
+		auction.setDateEnchere(startDate);
+		
+		
+		return auction;
+	}
+	
+	public SoldItems addSoldItem(HttpServletRequest request) throws BusinessException {
 		
 		this.auctionDAO = DAOFactory.getAuctionDAO();
 		
@@ -45,14 +70,27 @@ public class AuctionForm {
 		String description = getFieldValue(request, Form.auctionDescription);
 		String category = getFieldValue(request, Form.auctionCategory);
 		String photo = getFieldValue(request, Form.auctionPhoto);
-		String startPrice = getFieldValue(request, Form.auctionStartPrice);
-		String startDate = getFieldValue(request, Form.auctionStartDate);
-		String endDate = getFieldValue(request, Form.auctionEndDate);
+				
+		SoldItems soldItem = new SoldItems();
 		
+		soldItem.setNomArticle(title);
+		soldItem.setDescription(description);
+		soldItem.setNoCategorie(category);
 		
-		Auction auction = new Auction();
+		return soldItem;
+	}
+	
+	public Pickup addPickup(HttpServletRequest request) throws BusinessException {
 		
-		return auction;
+		this.auctionDAO = DAOFactory.getAuctionDAO();
+		
+		String street = getFieldValue(request, Form.userStreet);
+		String zip = getFieldValue(request, Form.userZipCode);
+		String city = getFieldValue(request, Form.userCity);
+		
+		Pickup pickup = new Pickup();
+		
+		return pickup;
 	}
 	
 	private static String getFieldValue(HttpServletRequest request, String fieldName) {

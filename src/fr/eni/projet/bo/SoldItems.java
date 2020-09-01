@@ -1,6 +1,7 @@
 package fr.eni.projet.bo;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * 
@@ -18,34 +19,8 @@ public class SoldItems {
 	private int prixVente;
 	private User noUtilisateur;
 	private Categorie noCategorie;
-	
-	/**
-	 * 
-	 * Constructeur de Classe ArticleVendu
-	 * @param noArticle
-	 * @param nomArticle
-	 * @param description
-	 * @param dateDebutEnchere
-	 * @param dateFinEnchere
-	 * @param prixInitial
-	 * @param prixVente
-	 * @param noUtilisateur
-	 * @param noCategorie
-	 * 
-	 */
-	public SoldItems(int noArticle, String nomArticle, String description, LocalDateTime dateDebutEnchere,
-			LocalDateTime dateFinEnchere, int prixInitial, int prixVente, User noUtilisateur,
-			Categorie noCategorie) {
-		this.noArticle = noArticle;
-		this.nomArticle = nomArticle;
-		this.description = description;
-		this.dateDebutEnchere = dateDebutEnchere;
-		this.dateFinEnchere = dateFinEnchere;
-		this.prixInitial = prixInitial;
-		this.prixVente = prixVente;
-		this.noUtilisateur = noUtilisateur;
-		this.noCategorie = noCategorie;
-	}
+	private List<Auctions> auctions;
+	private Pickup pickup;
 
 	/**
 	 * @return the noArticle

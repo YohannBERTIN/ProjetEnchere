@@ -13,20 +13,6 @@ public class Pickup {
 	private String ville;
 	
 	/**
-	 * @param noArticle
-	 * @param rue
-	 * @param codePostal
-	 * @param ville
-	 */
-	public Pickup(int noArticle, String rue, String codePostal, String ville) {
-		super();
-		this.noArticle = noArticle;
-		this.rue = rue;
-		this.codePostal = codePostal;
-		this.ville = ville;
-	}
-
-	/**
 	 * @return the noArticle
 	 */
 	public int getNoArticle() {

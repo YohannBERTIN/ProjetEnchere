@@ -11,6 +11,8 @@ import fr.eni.projet.bo.SoldItems;
 
 public class AuctionDAOJdbcImpl implements AuctionDAO {
 
+		// Refaire les requêtes...
+	
 		private static final String INSERT_AUCTION="INSERT INTO ARTICLES_VENDUS("
 				+ "nom_article, "
 				+ "description, "

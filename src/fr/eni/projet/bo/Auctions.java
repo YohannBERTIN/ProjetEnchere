@@ -13,20 +13,6 @@ public class Auctions {
 	private int noArticle;
 	private LocalDateTime dateEnchere;
 	private int montantEnchere;
-	
-	/**
-	 * @param noUtilisateur
-	 * @param noArticle
-	 * @param dateEnchere
-	 * @param montantEnchere
-	 */
-	public Auctions(int noUtilisateur, int noArticle, LocalDateTime dateEnchere, int montantEnchere) {
-		super();
-		this.noUtilisateur = noUtilisateur;
-		this.noArticle = noArticle;
-		this.dateEnchere = dateEnchere;
-		this.montantEnchere = montantEnchere;
-	}
 
 	/**
 	 * @return the noUtilisateur

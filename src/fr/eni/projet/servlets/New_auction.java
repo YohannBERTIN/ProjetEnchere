@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.projet.BusinessException;
+import fr.eni.projet.Form;
 import fr.eni.projet.bll.AuctionForm;
 import fr.eni.projet.bo.SoldItems;
 
@@ -38,11 +39,9 @@ public class New_auction extends HttpServlet {
 		
 		SoldItems solditem = null;
 		
-		try {
-			soldItem = form.
-		} catch(BusinessException e) {
-			e.printStackTrace();
-		}
+		System.out.println(request.getParameter(Form.auctionStartDate));
+		
+
 		
 	}
 
