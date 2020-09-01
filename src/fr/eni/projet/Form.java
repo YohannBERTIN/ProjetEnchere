@@ -9,7 +9,7 @@ public final class Form {
 	
 	// Form user : Login, Register, modify profil
 	
-	public static String userPseudo = "pseudo";
+	public static String userPseudo = "userPseudo";
 	public static String userLastName = "userLastName";
 	public static String userFirstName = "userFirstName";
 	public static String userEmail = "userEmail";
