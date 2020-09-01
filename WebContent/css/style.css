@@ -13,6 +13,21 @@ button.sansLabel {
     margin-left: 200px;
 }
 
+.underline {
+	text-decoration: underline;
+}
+
+.warning {
+	padding: 10px;
+    border: 1px red solid;
+    margin: 10px;
+}
+
+.warning legend {
+	font-weight: bold;
+    color: red;
+}
+
 /* Forms --------------------------------------------------------------------------------------- */
 fieldset {
     padding: 10px;
