@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import fr.eni.projet.Bdd;
 import fr.eni.projet.BusinessException;
 import fr.eni.projet.bo.User;
 import fr.eni.projet.dal.DAOFactory;
@@ -38,7 +39,7 @@ public class LoginForm {
 		
 		this.userDAO = DAOFactory.getUserDAO();
 		
-		User userBDD = this.userDAO.search(BDD_PSEUDO, pseudo);
+		User userBDD = this.userDAO.search(Bdd.userPseudo, pseudo);
 		User userLogin;
 		
 		try {
