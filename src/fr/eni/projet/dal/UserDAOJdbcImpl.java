@@ -49,7 +49,7 @@ public class UserDAOJdbcImpl implements UserDAO {
 			+ "ville, "
 			+ "mot_de_passe, "
 			+ "credit, "
-			+ "administrateur FROM UTILISATEURS WHERE ? = ? and ? != ?";
+			+ "administrateur FROM UTILISATEURS WHERE ";
 	private static final String UPDATE_USER="UPDATE UTILISATEURS SET " 
 			+ "pseudo = ?, "
 			+ "nom = ?, "
@@ -180,10 +180,8 @@ public class UserDAOJdbcImpl implements UserDAO {
 			try {
 				cnx.setAutoCommit(false);
 				
-				PreparedStatement pstmt = cnx.prepareStatement(MODIFY_MAIL);
-				pstmt.setString(1, column1);
-				pstmt.setString(2, colValue1);
-				pstmt.setString(1, column2);
+				PreparedStatement pstmt = cnx.prepareStatement(MODIFY_MAIL + column1 + " = ? and " + column2 + " != ?");
+				pstmt.setString(1, colValue1);
 				pstmt.setLong(2, colValue2);
 				
 				ResultSet rs = pstmt.executeQuery();
