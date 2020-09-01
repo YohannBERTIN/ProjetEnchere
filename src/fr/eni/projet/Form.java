@@ -23,6 +23,15 @@ public final class Form {
 	
 	// Form auction : Add, Modify, Delete...etc...
 	
+	public static String auctionTitle = "auctionTitle";
+	public static String auctionDescription = "auctionDescription";
+	public static String auctionCategory = "auctionCategory";
+	public static String auctionPhoto = "auctionPhoto";
+	public static String auctionStartPrice = "auctionStartPrice";
+	public static String auctionStartDate = "auctionStartDate";
+	public static String auctionEndDate = "auctionEndDate";
+	
+	
 	// Form search : auction with options...
 
 }

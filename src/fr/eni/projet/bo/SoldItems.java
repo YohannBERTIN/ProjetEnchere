@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
  * @author Yohan SAINT-MARTIN
  *
  */
-public class ArticlesVendu {
+public class SoldItems {
 
 	private int noArticle;
 	private String nomArticle;
@@ -33,7 +33,7 @@ public class ArticlesVendu {
 	 * @param noCategorie
 	 * 
 	 */
-	public ArticlesVendu(int noArticle, String nomArticle, String description, LocalDateTime dateDebutEnchere,
+	public SoldItems(int noArticle, String nomArticle, String description, LocalDateTime dateDebutEnchere,
 			LocalDateTime dateFinEnchere, int prixInitial, int prixVente, User noUtilisateur,
 			Categorie noCategorie) {
 		this.noArticle = noArticle;

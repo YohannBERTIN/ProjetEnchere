@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
  * @author Yohann BERTIN
  *
  */
-public class Enchere {
+public class Auctions {
 	
 	private int noUtilisateur;
 	private int noArticle;
@@ -20,7 +20,7 @@ public class Enchere {
 	 * @param dateEnchere
 	 * @param montantEnchere
 	 */
-	public Enchere(int noUtilisateur, int noArticle, LocalDateTime dateEnchere, int montantEnchere) {
+	public Auctions(int noUtilisateur, int noArticle, LocalDateTime dateEnchere, int montantEnchere) {
 		super();
 		this.noUtilisateur = noUtilisateur;
 		this.noArticle = noArticle;

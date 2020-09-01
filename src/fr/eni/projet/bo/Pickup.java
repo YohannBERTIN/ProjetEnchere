@@ -5,7 +5,7 @@ package fr.eni.projet.bo;
  * @author Yohann BERTIN
  *
  */
-public class Retrait {
+public class Pickup {
 	
 	private int noArticle;
 	private String rue;
@@ -18,7 +18,7 @@ public class Retrait {
 	 * @param codePostal
 	 * @param ville
 	 */
-	public Retrait(int noArticle, String rue, String codePostal, String ville) {
+	public Pickup(int noArticle, String rue, String codePostal, String ville) {
 		super();
 		this.noArticle = noArticle;
 		this.rue = rue;

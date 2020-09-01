@@ -6,5 +6,9 @@ public abstract class DAOFactory {
 	{
 		return new UserDAOJdbcImpl();
 	}
+	
+	public static AuctionDAO getAuctionDAO() {
+		return new AuctionDAOJdbcImpl();
+	}
 }
 	
