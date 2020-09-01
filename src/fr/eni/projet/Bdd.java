@@ -2,7 +2,7 @@ package fr.eni.projet;
 
 /**
  * Group all constant for BDD in one source.
- * @author Kunkero
+ * @author Yohann BERTIN
  *
  */
 public final class Bdd {
