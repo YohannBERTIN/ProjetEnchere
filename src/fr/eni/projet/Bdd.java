@@ -46,10 +46,10 @@ public final class Bdd {
 		public static String categoryID = "no_categorie";
 		public static String categoryLabel = "libelle";
 		
-		// BDD removal's fields
+		// BDD pickup's fields
 		
-		public static String removalItemID = "no_article";
-		public static String removalStreet = "rue";
-		public static String removalZipCode = "code_postal";
-		public static String removalCity = "ville";
+		public static String pickupItemID = "no_article";
+		public static String pickupStreet = "rue";
+		public static String pickupZipCode = "code_postal";
+		public static String pickupCity = "ville";
 }
