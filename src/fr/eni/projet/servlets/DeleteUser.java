@@ -41,6 +41,11 @@ public class DeleteUser extends HttpServlet {
 		
 		User userSession = (User) session.getAttribute(ATT_SESSION_USER);
 		
+		//test
+		//System.out.println("L'user récup dans la session");
+		//System.out.println(userSession);
+		//System.out.println("------------");
+		
 		Long userID = userSession.getUserId();
 		
 		System.out.println("L'utilisateur no : " + userID + " va être supprimé de la base de données");

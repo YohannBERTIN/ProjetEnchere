@@ -58,8 +58,8 @@ public class Login extends HttpServlet {
 		
 		if(user != null) {
 			// test
-			System.out.println("utilisateur retourné par le LoginForm");
-			System.out.println(user.toString());
+			//System.out.println("utilisateur retourné par le LoginForm");
+			//System.out.println(user.toString());
 			
 			session.setAttribute(ATT_SESSION_USER, user);
 			

@@ -38,17 +38,17 @@ public class LoginForm {
 		String password = getFieldValue(request, PASSWORD_FIELD);
 		
 		//test
-		System.out.println("LoginForm :");
-		System.out.println("request = pseudo : " + pseudo + " mdp : " + password);
+		//System.out.println("LoginForm :");
+		//System.out.println("request = pseudo : " + pseudo + " mdp : " + password);
 		
 		this.userDAO = DAOFactory.getUserDAO();
 		
 		User userBDD = this.userDAO.search(Bdd.userPseudo, pseudo);
 		
 		//test
-		System.out.println("LoginForm :");
-		System.out.println("utilisateur trouvé dans la base de données");
-		System.out.println(userBDD.toString());
+		//System.out.println("LoginForm :");
+		//System.out.println("utilisateur trouvé dans la base de données");
+		//System.out.println(userBDD.toString());
 		
 		User userLogin;
 		
@@ -98,7 +98,7 @@ public class LoginForm {
 		if(pseudo != null) {
 			
 			//test
-			System.out.println(pseudo + " + " +user.getPseudo() + " = ?");
+			//System.out.println(pseudo + " + " +user.getPseudo() + " = ?");
 	
 			if(!pseudo.equals(user.getPseudo())) {
 				
@@ -114,7 +114,7 @@ public class LoginForm {
 		if(password != null) {
 			
 			//test
-			System.out.println(password + " + " +user.getPassword() + " = ?");
+			//System.out.println(password + " + " +user.getPassword() + " = ?");
 			
 			if(!password.equals(user.getPassword())) {
 				throw new Exception("Mot de passe erroné");

@@ -28,9 +28,13 @@ private UserDAO userDAO;
 		
 		this.userDAO = DAOFactory.getUserDAO();
 		
-		userDAO.deleteUser(userID.toString());
+		userDAO.deleteUser(userID);
 		
-		User userTest = userDAO.search(Bdd.userID, userID.toString());
+		User userTest = userDAO.search(Bdd.userID, String.valueOf(userID));
+		
+		//test
+		System.out.println("DeleteUserForm");
+		System.out.println(userTest);
 		
 		if (userID == userTest.getUserId()) {
 			result = "La suppression à échouée !";

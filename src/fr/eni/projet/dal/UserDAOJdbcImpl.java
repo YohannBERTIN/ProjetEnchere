@@ -60,7 +60,7 @@ public class UserDAOJdbcImpl implements UserDAO {
 			+ "code_postal = ?, "
 			+ "ville = ?, "
 			+ "mot_de_passe = ? WHERE no_utilisateur = ?";
-	private static final String DELETE_USER="DELETE FROM UTILISATEURS WHERE no_utilisateur = ?";
+	private static final String DELETE_USER="DELETE FROM UTILISATEURS WHERE ";
 	
 	@Override
 	public void insert(User user) throws BusinessException {
@@ -127,8 +127,8 @@ public class UserDAOJdbcImpl implements UserDAO {
 		User user = null;
 		
 		//test
-		System.out.println("UserDAOJdbcImpl");
-		System.out.println("param recherche : colonne = " + column + " valeur = " + colValue);
+		//System.out.println("UserDAOJdbcImpl");
+		//System.out.println("param recherche : colonne = " + column + " valeur = " + colValue);
 		
 		try(Connection cnx = ConnectionProvider.getConnection()) {
 	
@@ -136,14 +136,13 @@ public class UserDAOJdbcImpl implements UserDAO {
 				cnx.setAutoCommit(false);
 				
 				PreparedStatement pstmt = cnx.prepareStatement(SEARCH_USER + column + " = ?");
-				//pstmt.setString(1, column);
 				pstmt.setString(1, colValue);
 				
 				ResultSet rs = pstmt.executeQuery();
 				
 				user = new User();
 				while(rs.next()) {
-					System.out.println("-- entré dans le rs.next");
+					//System.out.println("-- entré dans le rs.next");
 					user = userBuilder(rs);
 				}
 				
@@ -165,8 +164,8 @@ public class UserDAOJdbcImpl implements UserDAO {
 			throw businessException;
 		}
 		//test
-		System.out.println("UserDAOJdbcImpl");
-		System.out.println(user);
+		//System.out.println("UserDAOJdbcImpl");
+		//System.out.println(user);
 		
 		return user;
 	}
@@ -262,7 +261,7 @@ public class UserDAOJdbcImpl implements UserDAO {
 			try {
 				cnx.setAutoCommit(false);
 				
-				PreparedStatement pstmt = cnx.prepareStatement(DELETE_USER);
+				PreparedStatement pstmt = cnx.prepareStatement(DELETE_USER + " no_utilisateur = ?");
 				pstmt.setString(1, userID);
 				
 				pstmt.close();
