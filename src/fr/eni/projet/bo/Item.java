@@ -20,7 +20,7 @@ public class Item {
 	private LocalTime itemEndTime;
 	private int prixInitial;
 	private int prixVente;
-	private int noUtilisateur;
+	private Long noUtilisateur;
 	private int noCategorie;
 	private List<Auctions> auctions;
 	private Pickup pickup;
@@ -126,14 +126,14 @@ public class Item {
 	/**
 	 * @return the noUtilisateur
 	 */
-	public int getNoUtilisateur() {
+	public Long getNoUtilisateur() {
 		return noUtilisateur;
 	}
 
 	/**
 	 * @param noUtilisateur the noUtilisateur to set
 	 */
-	public void setNoUtilisateur(int noUtilisateur) {
+	public void setNoUtilisateur(Long noUtilisateur) {
 		this.noUtilisateur = noUtilisateur;
 	}
 
@@ -149,17 +149,6 @@ public class Item {
 	 */
 	public void setNoCategorie(int noCategorie) {
 		this.noCategorie = noCategorie;
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "ArticlesVendu [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" + description
-				+ ", dateDebutEnchere=" + dateDebutEnchere + ", dateFinEnchere=" + dateFinEnchere + ", prixInitial="
-				+ prixInitial + ", prixVente=" + prixVente + ", noUtilisateur=" + noUtilisateur + ", noCategorie="
-				+ noCategorie + "]";
 	}
 
 	/**
@@ -217,6 +206,20 @@ public class Item {
 	public void setTimeEnd(LocalTime itemEndTime) {
 		this.itemEndTime = itemEndTime;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Item [noArticle=" + noArticle + ", nomArticle=" + nomArticle + ", description=" + description
+				+ ", dateDebutEnchere=" + dateDebutEnchere + ", dateFinEnchere=" + dateFinEnchere + ", itemStartTime="
+				+ itemStartTime + ", itemEndTime=" + itemEndTime + ", prixInitial=" + prixInitial + ", prixVente="
+				+ prixVente + ", noUtilisateur=" + noUtilisateur + ", noCategorie=" + noCategorie + ", auctions="
+				+ auctions + ", pickup=" + pickup + "]";
+	}
+	
+	
 	
 	
 	

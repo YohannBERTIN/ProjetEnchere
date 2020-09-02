@@ -27,15 +27,15 @@ public final class Form {
 	
 	// Form item : Add, Delete
 	
-	public static String itemTitle = "itemTitle";
+	public static String itemTitle = "itemName";
 	public static String itemDescription = "itemDescription";
 	public static String itemCategory = "itemCategory";
 	public static String itemPhoto = "itemPhoto";
-	public static String itemStartPrice = "itemStartPrice";
+	public static String itemStartPrice = "itemInitPrice";
 	public static String itemStartDate = "itemStartDate";
 	public static String itemEndDate = "itemEndDate";
-	public static String itemStartTime = "itemStartTime";
-	public static String itemEndTime = "itemEndTime";
+	public static String itemStartTime = "timeStart";
+	public static String itemEndTime = "itemEndtime";
 	
 	// Form search : auction with options...
 	

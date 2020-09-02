@@ -12,6 +12,7 @@ import fr.eni.projet.BusinessException;
 import fr.eni.projet.Form;
 import fr.eni.projet.bo.Item;
 import fr.eni.projet.bo.Pickup;
+import fr.eni.projet.bo.User;
 import fr.eni.projet.dal.DAOFactory;
 import fr.eni.projet.dal.ItemDAO;
 
@@ -52,15 +53,18 @@ public class ItemForm {
 		Item item = addItemIdentity(request);
 		Pickup pickup = addPickup(request);
 		
-		this.itemDAO.insert(item, pickup);
+		//test
+		System.out.println("ItemForm : Item généré = "+ item);
+		System.out.println("ItemForm : Pickup généré = "+ pickup);
 		
-		
-		
+		this.itemDAO.insert(item, pickup);	
 	}
 	
 	public Item addItemIdentity(HttpServletRequest request) throws BusinessException {
 		
 		Item item = new Item();
+		User user = (User) request.getAttribute("sellerUser");
+		
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		DateTimeFormatter dtf1 = DateTimeFormatter.ofPattern("HH:mm");
 		
@@ -73,10 +77,9 @@ public class ItemForm {
 		item.setDateFinEnchere(LocalDate.parse(getFieldValue(request, Form.itemEndDate), dtf));
 		item.setTimeStart(LocalTime.parse(getFieldValue(request, Form.itemStartTime), dtf1));
 		item.setTimeEnd(LocalTime.parse(getFieldValue(request, Form.itemEndTime), dtf1));
-		item.setNoUtilisateur(Integer.parseInt(getFieldValue(request, "sessionUser")));
+		item.setNoUtilisateur(user.getUserId());
 		
-		return item;
-		
+		return item;	
 	}
 	
 	public Pickup addPickup(HttpServletRequest request) throws BusinessException {
@@ -85,12 +88,10 @@ public class ItemForm {
 		Pickup pickup = new Pickup();
 		
 		pickup.setRue(getFieldValue(request, Form.pickupStreet));
-		pickup.setCodePostal(getFieldValue(request, Form.pickupStreet));
-		pickup.setVille(getFieldValue(request, Form.pickupStreet));
+		pickup.setCodePostal(getFieldValue(request, Form.pickupZip));
+		pickup.setVille(getFieldValue(request, Form.pickupCity));
 		
 		return pickup;
-		
-		
 	}
 	
 	private static String getFieldValue(HttpServletRequest request, String fieldName) {
@@ -103,7 +104,6 @@ public class ItemForm {
 		} else {
 			
 			return value.trim();
-			
 		}
 	}
 }

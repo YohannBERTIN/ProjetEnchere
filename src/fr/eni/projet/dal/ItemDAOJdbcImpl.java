@@ -22,7 +22,7 @@ public class ItemDAOJdbcImpl implements ItemDAO {
 					+ "prix_initial, "
 					+ "no_utilisateur, "
 					+ "no_categorie) values(?,?,?,?,?,?,?);";
-			private static final String INSERT_PICKUP="INSERT INTO RETRAIT("
+			private static final String INSERT_PICKUP="INSERT INTO RETRAITS("
 					+ "no_article, "
 					+ "rue, "
 					+ "code_postal, "
@@ -43,20 +43,25 @@ public class ItemDAOJdbcImpl implements ItemDAO {
 					try {
 						cnx.setAutoCommit(false);
 						
+						//test
+						System.out.println("ItemDAOJdbcImpl : item = " + item + " pickup = " + pickup);
+						
 						PreparedStatement pstmt = cnx.prepareStatement(INSERT_ITEM, PreparedStatement.RETURN_GENERATED_KEYS);
 						//Item
 						pstmt.setString(1, item.getNomArticle());
 						pstmt.setString(2, item.getDescription());
 						pstmt.setDate(3, java.sql.Date.valueOf(item.getDateDebutEnchere()));
-						pstmt.setDate(3, java.sql.Date.valueOf(item.getDateFinEnchere()));
+						pstmt.setDate(4, java.sql.Date.valueOf(item.getDateFinEnchere()));
 						pstmt.setInt(5, item.getPrixInitial());
-						pstmt.setInt(6, item.getNoUtilisateur());
+						pstmt.setLong(6, item.getNoUtilisateur());
 						pstmt.setInt(7, item.getNoCategorie());
 
 						pstmt.executeUpdate();
 						
 						ResultSet rs = pstmt.getGeneratedKeys();
 						if(rs.next()) {
+							//test
+							System.out.println("-- entrée dans le RS --");
 							item.setNoArticle(rs.getInt(1));
 						}
 						
