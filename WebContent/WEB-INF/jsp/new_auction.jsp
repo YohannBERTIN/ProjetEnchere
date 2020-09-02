@@ -37,7 +37,7 @@
 					<option>Jouets</option>
 					<option>Livres</option>
 					<option>Meubles</option>
-					<option>Vêtmements</option>
+					<option>Vêtemements</option>
 					</select>
 					<span class="erreur">${ form.errors['auctionCategory'] } </span>
 					<br/>

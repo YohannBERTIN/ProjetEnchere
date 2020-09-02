@@ -19,8 +19,13 @@ public class Auction extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/auction.jsp");
 		this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/index_login.jsp").forward(request, response);
+		
+		// [ ] Il faut récupérer la liste des vente en cours.
+		// [ ] Afficher la liste des enchères en cours.
+		
+		
+		
 		
 		
 	}
@@ -29,7 +34,12 @@ public class Auction extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		
+		// [ ] Selectionner une enchere:
+		// [ ] Afficher le contenu de l'enchere selectionnée:
+		// [ ] Enchérir:
+		// [ ] récupérer la date, l'heure, le montant de l'enchere:
+		// [ ] Enregistrer la date, l'heure, le montant de l'enchere en base de données:
 	}
 
 }
