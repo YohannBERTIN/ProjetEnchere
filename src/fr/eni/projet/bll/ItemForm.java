@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import fr.eni.projet.BusinessException;
 import fr.eni.projet.Form;
+import fr.eni.projet.bo.Categorie;
 import fr.eni.projet.bo.Item;
 import fr.eni.projet.bo.Pickup;
 import fr.eni.projet.bo.User;
