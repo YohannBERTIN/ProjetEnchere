@@ -18,7 +18,7 @@ public interface UserDAO {
 	
 	void updateUser(User user) throws BusinessException;
 	
-	void deleteUser(String userID) throws BusinessException;
+	void deleteUser(Long userID) throws BusinessException;
 	
 
 }

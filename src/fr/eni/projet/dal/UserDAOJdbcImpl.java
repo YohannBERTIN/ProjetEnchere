@@ -256,13 +256,13 @@ public class UserDAOJdbcImpl implements UserDAO {
 	}
 	
 	@Override
-	public void deleteUser(String userID) throws BusinessException {
+	public void deleteUser(Long userID) throws BusinessException {
 		try(Connection cnx = ConnectionProvider.getConnection()) {
 			try {
 				cnx.setAutoCommit(false);
 				
 				PreparedStatement pstmt = cnx.prepareStatement(DELETE_USER + " no_utilisateur = ?");
-				pstmt.setString(1, userID);
+				pstmt.setLong(1, userID);
 				
 				pstmt.close();
 				
