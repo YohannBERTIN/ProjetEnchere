@@ -1,15 +1,15 @@
 package fr.eni.projet.servlets;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import fr.eni.projet.bo.Item;
+import fr.eni.projet.bll.AuctionForm;
 
 /**
  * Servlet implementation class Auction
@@ -32,6 +32,9 @@ public class Auction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// [ ] Selectionner une enchere:
+		AuctionForm form = new AuctionForm();
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("sessionUser");
 		// [ ] Afficher le contenu de l'enchere selectionnée:
 		// [ ] Enchérir:
 		// [ ] récupérer la date, l'heure, le montant de l'enchere:

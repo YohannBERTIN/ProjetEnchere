@@ -7,6 +7,7 @@ import fr.eni.projet.bo.Item;
 
 public interface AuctionDAO {
 
+	//Revoir cette méthode...
 	void insert(Item soldItem, Auctions newAuction, Pickup pickup) throws BusinessException;
 	
 	void delete(Auctions auction) throws BusinessException;

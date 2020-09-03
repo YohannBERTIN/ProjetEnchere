@@ -39,7 +39,7 @@ public final class Form {
 	
 	// Form search : auction with options...
 	
-	
+	public static String auctionAmount = "auctionAmount";
 	
 	// Form Pickup : add, Modify, Delete ...
 	
